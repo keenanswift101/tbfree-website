@@ -1,0 +1,108 @@
+---
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/who-we-are', label: 'Who We Are' },
+  { href: '/what-we-do', label: 'What We Do' },
+  { href: '/our-mission', label: 'Our Mission' },
+];
+
+const actionLinks = [
+  { href: '/events', label: 'Events & Projects' },
+  { href: '/news', label: 'News' },
+  { href: '/donations', label: 'Donate' },
+  { href: '/contact', label: 'Contact Us' },
+];
+---
+
+<footer class="bg-gray-900 text-gray-300">
+  <!-- Main footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <a href="/" class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold text-sm">TB</span>
+          </div>
+          <div>
+            <span class="text-lg font-bold text-white">TB FREE</span>
+            <p class="text-xs text-gray-400 uppercase tracking-widest">Foundation of Namibia</p>
+          </div>
+        </a>
+        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+          Breaking barriers to END TB. A not-for-profit civil society organization advocating for TB patients throughout Namibia.
+        </p>
+        <p class="text-sm font-medium text-primary">
+          "Breaking barriers to END TB"
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-white font-semibold mb-6 text-sm uppercase tracking-wider">About</h3>
+        <ul class="space-y-3">
+          {quickLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Action Links -->
+      <div>
+        <h3 class="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Get Involved</h3>
+        <ul class="space-y-3">
+          {actionLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Contact</h3>
+        <ul class="space-y-4">
+          <li>
+            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">General Enquiries</p>
+            <a href="mailto:admin@tbfreenamibia.com" class="text-sm text-gray-400 hover:text-white transition-colors">
+              admin@tbfreenamibia.com
+            </a>
+          </li>
+          <li>
+            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Founder</p>
+            <a href="mailto:karin@tbfreenamibia.com" class="text-sm text-gray-400 hover:text-white transition-colors">
+              karin@tbfreenamibia.com
+            </a>
+          </li>
+          <li>
+            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Chairperson</p>
+            <a href="mailto:taime@tbfreenamibia.com" class="text-sm text-gray-400 hover:text-white transition-colors">
+              taime@tbfreenamibia.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-xs text-gray-500">
+        &copy; {currentYear} TB Free Foundation of Namibia. All rights reserved.
+      </p>
+      <p class="text-xs text-gray-500">
+        Striving towards a world free of TB
+      </p>
+    </div>
+  </div>
+</footer>

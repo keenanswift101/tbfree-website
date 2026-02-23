@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  backgroundImage?: string;
+  height?: 'full' | 'large' | 'medium' | 'small';
+}
+
+const { title, subtitle, backgroundImage, height = 'medium' } = Astro.props;
+
+const heightClasses = {
+  full: 'min-h-screen',
+  large: 'min-h-[80vh]',
+  medium: 'min-h-[60vh]',
+  small: 'min-h-[40vh]',
+};
+---
+
+<section class={`relative ${heightClasses[height]} flex items-center justify-center overflow-hidden`}>
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-primary-dark to-gray-900">
+    {backgroundImage && (
+      <img
+        src={backgroundImage}
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+        loading="eager"
+      />
+    )}
+    <!-- Decorative elements -->
+    <div class="absolute inset-0">
+      <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow delay-200"></div>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up" style="font-family: var(--font-heading);">
+      {title}
+    </h1>
+    {subtitle && (
+      <p class="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200">
+        {subtitle}
+      </p>
+    )}
+    <slot />
+  </div>
+
+  <!-- Bottom gradient fade -->
+  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+</section>

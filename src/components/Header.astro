@@ -1,0 +1,121 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/who-we-are', label: 'Who We Are' },
+  { href: '/what-we-do', label: 'What We Do' },
+  { href: '/our-mission', label: 'Our Mission' },
+  { href: '/events', label: 'Events & Projects' },
+  { href: '/news', label: 'News' },
+  { href: '/donations', label: 'Donate' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+          <span class="text-white font-bold text-sm tracking-tight">TB</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-bold tracking-tight text-white group-hover:text-gray-200 transition-colors">TB FREE</span>
+          <span class="text-[10px] uppercase tracking-widest text-white/70">Foundation of Namibia</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center gap-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class:list={[
+              'px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200',
+              currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+                ? 'text-white bg-white/20'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="lg:hidden hidden pb-4">
+      <div class="glass rounded-xl p-4 mt-2 space-y-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class:list={[
+              'block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200',
+              currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+                ? 'text-white bg-white/20'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  // Scroll behavior - add background on scroll
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (header) {
+      if (scrollY > 50) {
+        header.style.background = 'rgba(159, 13, 13, 0.95)';
+        header.style.backdropFilter = 'blur(16px)';
+        header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.15)';
+      } else {
+        header.style.background = 'rgba(159, 13, 13, 0.8)';
+        header.style.backdropFilter = 'blur(8px)';
+        header.style.boxShadow = 'none';
+      }
+    }
+    lastScroll = scrollY;
+  });
+
+  // Initialize header style
+  if (header) {
+    header.style.background = 'rgba(159, 13, 13, 0.8)';
+    header.style.backdropFilter = 'blur(8px)';
+  }
+
+  // Mobile menu toggle
+  mobileBtn?.addEventListener('click', () => {
+    const isHidden = mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+  });
+</script>

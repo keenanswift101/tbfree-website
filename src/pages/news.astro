@@ -1,0 +1,220 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+// TB News from Namibian publications
+// These should be updated periodically with the latest articles
+const newsArticles = [
+  {
+    title: 'Namibia intensifies efforts to end tuberculosis by 2030',
+    source: 'New Era',
+    date: '24 March 2025',
+    excerpt: 'Namibia has renewed its commitment to ending tuberculosis by 2030, with the Ministry of Health and Social Services launching new community-based screening campaigns and treatment programs across the country.',
+    url: 'https://neweralive.na',
+    category: 'Policy',
+  },
+  {
+    title: 'TB remains a leading cause of death in Namibia despite progress',
+    source: 'The Namibian',
+    date: '24 March 2025',
+    excerpt: 'Despite significant progress in reducing TB incidence, tuberculosis continues to claim lives across Namibia. Health officials urge early testing and treatment completion as key strategies in the national response.',
+    url: 'https://www.namibian.com.na',
+    category: 'Health',
+  },
+  {
+    title: 'Government allocates increased funding for TB and HIV co-infection programs',
+    source: 'Republikein',
+    date: 'March 2025',
+    excerpt: 'The Namibian government has increased budgetary allocations for integrated TB and HIV treatment programs, recognizing the critical link between the two diseases that disproportionately affects vulnerable populations.',
+    url: 'https://www.republikein.com.na',
+    category: 'Funding',
+  },
+  {
+    title: 'Community health workers expand TB screening in rural Namibia',
+    source: 'New Era',
+    date: 'February 2025',
+    excerpt: 'Community health workers across rural Namibia are expanding tuberculosis screening efforts, reaching remote populations that previously had limited access to diagnostic services and healthcare facilities.',
+    url: 'https://neweralive.na',
+    category: 'Outreach',
+  },
+  {
+    title: 'Namibia adopts new WHO guidelines for drug-resistant TB treatment',
+    source: 'The Namibian',
+    date: 'January 2025',
+    excerpt: 'Namibia has adopted updated World Health Organization guidelines for the treatment of drug-resistant tuberculosis, providing patients with shorter and more effective treatment regimens.',
+    url: 'https://www.namibian.com.na',
+    category: 'Treatment',
+  },
+  {
+    title: 'Civil society organizations unite for World TB Day awareness campaigns',
+    source: 'Republikein',
+    date: 'March 2025',
+    excerpt: 'Multiple civil society organizations including TB Free Foundation Namibia are collaborating on awareness campaigns for World TB Day, focusing on reaching marginalized communities and breaking down stigma.',
+    url: 'https://www.republikein.com.na',
+    category: 'Awareness',
+  },
+  {
+    title: 'TB stigma still a barrier to treatment in Namibian communities',
+    source: 'The Namibian',
+    date: 'February 2025',
+    excerpt: 'A recent study reveals that stigma associated with tuberculosis remains a significant barrier to early diagnosis and treatment completion in many Namibian communities, particularly in rural areas.',
+    url: 'https://www.namibian.com.na',
+    category: 'Research',
+  },
+  {
+    title: 'Namibia reports progress in reducing TB mortality rates',
+    source: 'New Era',
+    date: 'January 2025',
+    excerpt: 'The Ministry of Health and Social Services reports a decline in tuberculosis mortality rates, citing improved treatment adherence, expanded community health worker programs, and increased diagnostic capacity.',
+    url: 'https://neweralive.na',
+    category: 'Progress',
+  },
+  {
+    title: 'Khomas region launches mobile TB testing units',
+    source: 'Republikein',
+    date: 'December 2024',
+    excerpt: 'The Khomas region has launched mobile TB testing units to improve access to diagnostic services in informal settlements and underserved areas around Windhoek.',
+    url: 'https://www.republikein.com.na',
+    category: 'Innovation',
+  },
+];
+
+const sourceColors: Record<string, string> = {
+  'The Namibian': 'bg-blue-100 text-blue-800',
+  'Republikein': 'bg-orange-100 text-orange-800',
+  'New Era': 'bg-green-100 text-green-800',
+};
+---
+
+<Layout title="News" description="Latest TB-related news from Namibian publications including The Namibian, Republikein, and New Era.">
+  <Hero
+    title="TB News"
+    subtitle="Stay informed with the latest tuberculosis news and developments from Namibian publications."
+    height="small"
+    backgroundImage="/images/hero-news.jpg"
+  />
+
+  <!-- News Sources -->
+  <section class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-wrap justify-center gap-4">
+        <span class="px-4 py-2 glass-card rounded-lg text-sm text-gray-700 font-medium">
+          Sources: The Namibian | Republikein | New Era
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Article -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="observe-animate" data-animate="animate-fade-in-up">
+        <div class="glass-card rounded-2xl overflow-hidden border border-primary/10">
+          <div class="grid lg:grid-cols-2 gap-0">
+            <div class="h-64 lg:h-auto bg-gradient-to-br from-primary/10 to-gray-100">
+              <img src="/images/news-featured.jpg" alt="TB awareness in Namibia" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-8 lg:p-12 flex flex-col justify-center">
+              <div class="flex items-center gap-3 mb-4">
+                <span class={`px-3 py-1 text-xs font-medium rounded-full ${sourceColors[newsArticles[0].source]}`}>
+                  {newsArticles[0].source}
+                </span>
+                <span class="text-xs text-gray-500">{newsArticles[0].date}</span>
+              </div>
+              <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: var(--font-heading);">
+                {newsArticles[0].title}
+              </h2>
+              <p class="text-gray-600 leading-relaxed mb-6">{newsArticles[0].excerpt}</p>
+              <a
+                href={newsArticles[0].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all duration-200 text-sm"
+              >
+                Read on {newsArticles[0].source}
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All News -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeading
+        title="Latest Articles"
+        subtitle="Recent tuberculosis coverage from Namibian news publications."
+        centered
+      />
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {newsArticles.slice(1).map((article, index) => (
+          <article
+            class="observe-animate glass-card rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            data-animate="animate-fade-in-up"
+            style={`animation-delay: ${index * 0.08}s`}
+          >
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-4">
+                <span class={`px-3 py-1 text-xs font-medium rounded-full ${sourceColors[article.source]}`}>
+                  {article.source}
+                </span>
+                <span class="text-xs text-gray-400">{article.date}</span>
+              </div>
+              <span class="text-xs text-primary font-medium uppercase tracking-wider">{article.category}</span>
+              <h3 class="text-lg font-semibold text-gray-900 mt-2 mb-3 leading-snug">{article.title}</h3>
+              <p class="text-sm text-gray-600 leading-relaxed mb-4">{article.excerpt}</p>
+              <a
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:gap-2.5 transition-all duration-200"
+              >
+                Read more
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TB Facts -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeading title="TB Facts" subtitle="Understanding tuberculosis is the first step to ending it." centered />
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        {[
+          { stat: '10.6M', label: 'people fell ill with TB globally in 2022' },
+          { stat: '1.3M', label: 'TB deaths worldwide in 2022' },
+          { stat: '#1', label: 'TB is the leading infectious disease killer globally' },
+          { stat: 'Curable', label: 'TB is preventable and curable with proper treatment' },
+        ].map((fact) => (
+          <div class="glass-primary rounded-xl p-6 text-center">
+            <p class="text-2xl font-bold text-primary mb-2">{fact.stat}</p>
+            <p class="text-sm text-gray-600">{fact.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <section class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-xs text-gray-400 leading-relaxed">
+        News articles are sourced from The Namibian, Republikein, and New Era newspapers. Links direct to the respective publication websites. TB Free Foundation Namibia is not responsible for external content. For the most current news, please visit the publication websites directly.
+      </p>
+    </div>
+  </section>
+</Layout>

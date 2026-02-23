@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+---
+
+<Layout title="Our Mission" description="Our vision for a Namibia free from tuberculosis through advocacy, awareness, and healthcare equity.">
+  <Hero
+    title="Our Mission & Vision"
+    subtitle="Advocating for equal access to healthcare and championing the fight against tuberculosis in Namibia."
+    height="medium"
+    backgroundImage="/images/hero-mission.jpg"
+  />
+
+  <!-- Mission Statement -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="observe-animate" data-animate="animate-slide-left">
+          <SectionHeading title="Our Mission and Our Vision" />
+          <div class="space-y-6 text-gray-600 leading-relaxed">
+            <p>
+              The Foundation envisions a Namibia free from tuberculosis, and seeks to contribute to that vision through increasing TB awareness, championing advocacy campaigns, developing strategic educational programs and supporting innovation and research.
+            </p>
+            <p>
+              The vision of the organization is to better support, identify and treat TB patients, while ensuring high quality care and treatment to people with tuberculosis through robust and efficient advocacy efforts to break down stigma and discrimination at all levels.
+            </p>
+            <p>
+              Furthermore, the foundation commits to support and assist the Namibia National TB and Leprosy program to reduce the burden of tuberculosis and tuberculosis-associated disability in Namibia through robust and sustainable advocacy efforts.
+            </p>
+          </div>
+        </div>
+        <div class="observe-animate" data-animate="animate-slide-right">
+          <div class="glass-card rounded-2xl p-8">
+            <img
+              src="/images/mission-vision.jpg"
+              alt="TB Free Foundation vision - a world free of TB"
+              class="w-full h-80 object-cover rounded-xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slogan Section -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="glass-primary rounded-2xl p-12">
+        <p class="text-sm text-primary uppercase tracking-wider font-medium mb-4">Our Slogan</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6" style="font-family: var(--font-heading);">
+          "Breaking Barriers to END TB"
+        </h2>
+        <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto">
+          One of the central pillars of the TB Free Foundation is advocating for equal access to health care in Namibia. Our slogan speaks to our commitment to ensuring no patient is left behind, and that all the 'missing patients' are identified, tested and initiated on the proper treatment regimen in a timely manner.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Aims -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <SectionHeading title="Our Aims" centered />
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {
+            title: 'Increase TB Awareness',
+            description: 'Raising awareness about tuberculosis through targeted campaigns, community outreach, and educational programs to ensure every Namibian understands TB prevention, symptoms, and treatment.',
+            image: '/images/aim-awareness.jpg'
+          },
+          {
+            title: 'Champion Advocacy Campaigns',
+            description: 'Leading advocacy efforts to protect the rights of TB patients, fight discrimination, and ensure that the voices of patients and survivors are heard at all levels of society.',
+            image: '/images/aim-advocacy.jpg'
+          },
+          {
+            title: 'Strategic Educational Programs',
+            description: 'Developing and implementing educational programs that support innovation and research in TB prevention, treatment, and care across Namibia.',
+            image: '/images/aim-education.jpg'
+          },
+          {
+            title: 'Identify and Treat TB Patients',
+            description: 'Ensuring that all TB patients are identified, tested, and receive high quality care and treatment through robust healthcare systems and community support.',
+            image: '/images/aim-treatment.jpg'
+          },
+          {
+            title: 'Break Down Stigma',
+            description: 'Working tirelessly to ensure that TB patients receive high-quality care and treatment. Our advocacy efforts focus on breaking down stigma and discrimination at all levels of society.',
+            image: '/images/aim-stigma.jpg'
+          },
+          {
+            title: 'Equity in Health',
+            description: 'Advocating for equitable access to healthcare for all, especially for those who are marginalized and at greater risk of being lost to care during their TB journey.',
+            image: '/images/aim-equity.jpg'
+          }
+        ].map((aim, index) => (
+          <div class="observe-animate glass-card rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-animate="animate-fade-in-up" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="h-48 bg-gradient-to-br from-primary/10 to-gray-100">
+              <img src={aim.image} alt={aim.title} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">{aim.title}</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">{aim.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Research & Innovation -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass-card rounded-xl p-8">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Research and Innovation</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            We develop and support innovative strategies, research, and community-based approaches to raise awareness and improve TB care in communities across Namibia.
+          </p>
+        </div>
+        <div class="glass-card rounded-xl p-8">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Advocacy and Care</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            We work tirelessly to ensure that TB patients receive high-quality care and treatment. Our advocacy efforts focus on breaking down stigma and discrimination at all levels of society.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="relative rounded-2xl overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-gray-900"></div>
+        <div class="relative z-10 p-12 sm:p-16 text-center">
+          <h2 class="text-3xl font-bold text-white mb-6" style="font-family: var(--font-heading);">
+            Together We Can END the TB Pandemic
+          </h2>
+          <p class="text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
+            Join us in our mission to create a Namibia free of tuberculosis. Your support can make a lasting difference in the lives of TB patients and their communities.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/donations" class="px-8 py-3.5 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-all duration-200 text-sm">
+              Donate Now
+            </a>
+            <a href="/contact" class="px-8 py-3.5 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition-all duration-200 text-sm border border-white/20">
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+---
+
+<Layout title="Contact Us" description="Get in touch with TB Free Foundation of Namibia. Reach out to get involved in the fight against TB.">
+  <Hero
+    title="Contact Us"
+    subtitle="For more information or to get involved, please reach out to us."
+    height="small"
+    backgroundImage="/images/hero-contact.jpg"
+  />
+
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-5 gap-16">
+        <!-- Contact Form -->
+        <div class="lg:col-span-3 observe-animate" data-animate="animate-slide-left">
+          <SectionHeading
+            title="Send Us a Message"
+            subtitle="Fill in the form below and we will get back to you as soon as possible."
+          />
+
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="mt-8 space-y-6"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden">
+              <label>
+                Don't fill this out: <input name="bot-field" />
+              </label>
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 text-sm bg-white"
+                  placeholder="Your full name"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 text-sm bg-white"
+                  placeholder="your@email.com"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number (optional)</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 text-sm bg-white"
+                placeholder="+264 XX XXX XXXX"
+              />
+            </div>
+
+            <div>
+              <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+              <select
+                id="subject"
+                name="subject"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 text-sm bg-white"
+              >
+                <option value="">Select a topic</option>
+                <option value="general">General Enquiry</option>
+                <option value="volunteer">Volunteer with Us</option>
+                <option value="partnership">Partnership Opportunities</option>
+                <option value="advocacy">Share My TB Story</option>
+                <option value="donation">Donation Enquiry</option>
+                <option value="media">Media Enquiry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 text-sm bg-white resize-y"
+                placeholder="Your message..."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="px-8 py-3.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-all duration-200 text-sm"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="lg:col-span-2 observe-animate" data-animate="animate-slide-right">
+          <SectionHeading title="Get in Touch" />
+
+          <div class="space-y-6 mt-8">
+            <!-- Email contacts -->
+            <div class="glass-card rounded-xl p-6">
+              <h3 class="font-semibold text-gray-900 mb-4 text-sm uppercase tracking-wider">Email Us</h3>
+              <div class="space-y-4">
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">General Enquiries</p>
+                  <a href="mailto:admin@tbfreenamibia.com" class="text-sm text-primary hover:text-primary-dark transition-colors">
+                    admin@tbfreenamibia.com
+                  </a>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">Founder - Karin Husselmann</p>
+                  <a href="mailto:karin@tbfreenamibia.com" class="text-sm text-primary hover:text-primary-dark transition-colors">
+                    karin@tbfreenamibia.com
+                  </a>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500 mb-1">Chairperson - Dr. Taime Sylvester</p>
+                  <a href="mailto:taime@tbfreenamibia.com" class="text-sm text-primary hover:text-primary-dark transition-colors">
+                    taime@tbfreenamibia.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="glass-card rounded-xl p-6">
+              <h3 class="font-semibold text-gray-900 mb-4 text-sm uppercase tracking-wider">Location</h3>
+              <p class="text-sm text-gray-600">
+                Windhoek, Namibia
+              </p>
+            </div>
+
+            <!-- Social -->
+            <div class="glass-card rounded-xl p-6">
+              <h3 class="font-semibold text-gray-900 mb-4 text-sm uppercase tracking-wider">Connect With Us</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Follow our journey and stay updated on events, campaigns, and the latest news in the fight against TB in Namibia.
+              </p>
+            </div>
+
+            <!-- Quick links -->
+            <div class="glass-primary rounded-xl p-6">
+              <h3 class="font-semibold text-gray-900 mb-4 text-sm uppercase tracking-wider">Quick Links</h3>
+              <div class="space-y-2">
+                <a href="/events" class="block text-sm text-gray-600 hover:text-primary transition-colors">Upcoming Events</a>
+                <a href="/donations" class="block text-sm text-gray-600 hover:text-primary transition-colors">Make a Donation</a>
+                <a href="/news" class="block text-sm text-gray-600 hover:text-primary transition-colors">Latest TB News</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: var(--font-heading);">
+        You Can Make the Difference
+      </h2>
+      <p class="text-gray-600 mb-8">
+        Whether you want to volunteer, donate, partner, or share your story, we are here to listen and work together.
+      </p>
+    </div>
+  </section>
+</Layout>

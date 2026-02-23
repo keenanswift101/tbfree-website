@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+---
+
+<Layout title="Who We Are" description="Learn about the TB Free Foundation of Namibia, our leadership, and our commitment to ending tuberculosis.">
+  <Hero
+    title="Who We Are"
+    subtitle="A not-for-profit civil society organization dedicated to the fight against tuberculosis and the creation of a world free from the disease."
+    height="medium"
+    backgroundImage="/images/hero-who-we-are.jpg"
+  />
+
+  <!-- About Section -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div class="observe-animate" data-animate="animate-slide-left">
+          <SectionHeading title="TB Free Namibia" />
+          <div class="space-y-6 text-gray-600 leading-relaxed">
+            <p>
+              The TB Free Foundation is a not-for-profit civil society organization that was established to work collaboratively towards the END TB goals and advocate for TB patients throughout Namibia.
+            </p>
+            <p>
+              The organization is dedicated to the fight against tuberculosis (TB) and the creation of a world free from the disease. Our mission is deeply rooted in advocating for the rights of TB patients, ensuring equitable access to healthcare, diagnostics, and treatment, and increasing awareness and education about TB in our communities.
+            </p>
+            <p>
+              Founded by a TB survivor who faced stigma and isolation, we fight every day for those who do not have a voice.
+            </p>
+            <p>
+              TB FREE Foundation supports the global approach of community mobilization and engagement in the fight against disease and improved healthy living, including the fight against Tuberculosis. It supports the people- and community-centered strategies that the National TB Strategic Plan for 2022/2023-2027/2028 proposes to create an enabling environment with greater consideration for equality and equal access to health care thereby reducing discrimination and stigma.
+            </p>
+            <p>
+              The foundation further supports the WHO people-centered framework for TB planning that is based on the continuum of care, using epidemiological and system related information and plans according to a root cause analysis that prioritize and optimize interventions.
+            </p>
+          </div>
+        </div>
+        <div class="observe-animate" data-animate="animate-slide-right">
+          <div class="glass-card rounded-2xl overflow-hidden">
+            <img
+              src="/images/who-we-are-team.jpg"
+              alt="TB Free Foundation Namibia team"
+              class="w-full h-96 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leaders Section -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 observe-animate" data-animate="animate-fade-in-up">
+        <SectionHeading title="The Leaders" subtitle="Meet the people behind the mission to end TB in Namibia." centered />
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <!-- Chairperson -->
+        <div class="observe-animate" data-animate="animate-fade-in-up">
+          <div class="glass-card rounded-2xl overflow-hidden text-center">
+            <div class="h-72 bg-gradient-to-br from-primary/10 to-gray-100 relative">
+              <img
+                src="/images/leader-taime.jpg"
+                alt="Dr. Taime Sylvester - Chairperson of TB Free Namibia"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-8">
+              <p class="text-xs text-primary uppercase tracking-wider font-medium mb-2">The Chairperson</p>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Dr. Taime Sylvester</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Leading the TB Free Foundation with expertise in public health and a commitment to ending tuberculosis in Namibia.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Founder -->
+        <div class="observe-animate delay-200" data-animate="animate-fade-in-up">
+          <div class="glass-card rounded-2xl overflow-hidden text-center">
+            <div class="h-72 bg-gradient-to-br from-primary/10 to-gray-100 relative">
+              <img
+                src="/images/leader-karin.jpg"
+                alt="Karin Husselmann - Founder of TB Free Namibia"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-8">
+              <p class="text-xs text-primary uppercase tracking-wider font-medium mb-2">The Founder</p>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Karin Husselmann</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                A TB survivor who founded the organization to fight for those without a voice and break down the stigma around tuberculosis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Commitment -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="relative rounded-2xl overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-primary-dark to-gray-900">
+          <img
+            src="/images/commitment-bg.jpg"
+            alt="Community outreach work"
+            class="w-full h-full object-cover opacity-20"
+            loading="lazy"
+          />
+        </div>
+        <div class="relative z-10 p-12 sm:p-16 lg:p-20 text-center max-w-3xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-8" style="font-family: var(--font-heading);">
+            Our Commitment
+          </h2>
+          <p class="text-white/80 text-lg leading-relaxed mb-8">
+            The TB Free Foundation is driven by the belief that no one should be left behind in the fight against TB. We stand alongside patients, survivors, and healthcare workers, using our platform to amplify their voices and ensure that they receive the care and support they deserve.
+          </p>
+          <div class="section-divider mx-auto" style="background: linear-gradient(to right, white, transparent);"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Board Expertise -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeading
+        title="Our Strength"
+        subtitle="A diverse group of professionals united in the fight against TB."
+        centered
+      />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        {[
+          { label: 'Scientists', description: 'Research expertise in TB management' },
+          { label: 'Medical Officers', description: 'Clinical knowledge and patient care' },
+          { label: 'Public Health Specialists', description: 'Population-level disease prevention' },
+          { label: 'Patient Advocates', description: 'Lived experience and community voice' },
+        ].map((item) => (
+          <div class="glass-card rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+            <h3 class="font-semibold text-gray-900 mb-2">{item.label}</h3>
+            <p class="text-sm text-gray-600">{item.description}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-12 glass-card rounded-xl p-8">
+        <div class="grid sm:grid-cols-3 gap-8 text-center">
+          <div>
+            <p class="text-3xl font-bold text-primary">15+</p>
+            <p class="text-sm text-gray-600 mt-1">Years combined experience</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-primary">National</p>
+            <p class="text-sm text-gray-600 mt-1">TB Strategic Plan aligned</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-primary">MoHSS</p>
+            <p class="text-sm text-gray-600 mt-1">Government partnership</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

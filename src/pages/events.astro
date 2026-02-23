@@ -1,0 +1,309 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+// Events data - easily editable
+const upcomingEvents = [
+  {
+    title: 'World TB Day 2026',
+    date: '24 March 2026',
+    location: 'Nationwide, Namibia',
+    description: 'Join TB Free Foundation and partners nationwide as we commemorate World TB Day. Annual awareness events, community screenings, and advocacy activities across Namibia.',
+    type: 'Annual Event',
+    image: '/images/event-wtbd-2026.jpg',
+    featured: true,
+  },
+];
+
+const pastEvents = [
+  {
+    title: 'TB Free Charity Gala',
+    date: '21 November 2024',
+    location: 'Windhoek, Namibia',
+    description: 'The Inaugural TB Free Namibia Foundation charity gala dinner. A night of Hope: Transforming lives, One breath at a time.',
+    type: 'Fundraiser',
+    image: '/images/event-gala.jpg',
+  },
+  {
+    title: 'NGOs in the Spotlight',
+    date: '23 October 2024',
+    location: 'The FNCC Gallery, Windhoek',
+    description: 'TB Free and other NGOs gathered for a night of networking, getting to know what they do and how they do it, hosted by Umbrella Initiatives.',
+    type: 'Networking',
+    image: '/images/event-ngo-spotlight.jpg',
+  },
+  {
+    title: 'NPO Level Up Training',
+    date: '23 September 2024',
+    location: 'House of Democracy, Windhoek',
+    description: 'Training organized by the Lithon Foundation in collaboration with the Ministry of Health and Social Services, equipping NPOs with tools and knowledge to achieve higher levels of maturity and efficiency.',
+    type: 'Training',
+    image: '/images/event-npo-training.jpg',
+  },
+  {
+    title: 'Umbrella Initiatives Coffee Shop',
+    date: '21 September 2024',
+    location: 'Windhoek, Namibia',
+    description: 'Umbrella Initiatives hosted its first Coffee Shop in partnership with TB Free and other NGOs. Funds generated were utilized for projects benefiting less-privileged communities.',
+    type: 'Fundraiser',
+    image: '/images/event-coffee-shop.jpg',
+  },
+  {
+    title: 'TB Free Charity Hike',
+    date: '9 May 2024',
+    location: 'Windhoek, Namibia',
+    description: 'The Yellow Stone Trails, Lets Go Hiking Namibia and The Lithon Foundation made it possible for TB Free to have a successful fundraiser through this hiking event.',
+    type: 'Fundraiser',
+    image: '/images/event-hike.jpg',
+  },
+  {
+    title: 'TB Day with Ministry of Health',
+    date: 'March 2024',
+    location: 'Luderitz, Namibia',
+    description: 'TB Free joined the Ministry of Health and Social Services for a conference in Luderitz, re-establishing the commitment to working towards a future free of TB by the year 2030.',
+    type: 'Conference',
+    image: '/images/event-ministry-tb-day.jpg',
+  },
+];
+
+const projects = [
+  {
+    title: 'E-Bike Donation to Tsumkwe',
+    description: 'The TB Free Foundation donated two e-bikes with functional tracking devices to the Tsumkwe region in Namibia, helping community healthcare workers reach remote patients.',
+    image: '/images/project-ebikes.jpg',
+    category: 'Donation',
+  },
+  {
+    title: 'TB Champions Program',
+    description: 'Training TB champions from communities across Namibia, equipping them with knowledge and tools to raise awareness, educate others, and advocate for TB patients.',
+    image: '/images/project-champions.jpg',
+    category: 'Training',
+  },
+  {
+    title: 'Community Advocacy',
+    description: 'Empowering TB survivors to share their stories, using their voices to educate the community about the realities of living with TB and breaking down stigma.',
+    image: '/images/project-advocacy.jpg',
+    category: 'Advocacy',
+  },
+  {
+    title: 'Umbrella Initiatives Workshops',
+    description: 'Partnering with Umbrella Initiatives for skills development workshops including networking, marketing, website development, and organizational capacity building.',
+    image: '/images/project-workshops.jpg',
+    category: 'Workshops',
+  },
+];
+
+const typeColors: Record<string, string> = {
+  'Annual Event': 'bg-primary/10 text-primary',
+  'Fundraiser': 'bg-amber-100 text-amber-800',
+  'Networking': 'bg-blue-100 text-blue-800',
+  'Training': 'bg-green-100 text-green-800',
+  'Conference': 'bg-purple-100 text-purple-800',
+};
+---
+
+<Layout title="Events & Projects" description="Explore TB Free Foundation's events, projects, and community initiatives in the fight against tuberculosis in Namibia.">
+  <Hero
+    title="Events & Projects"
+    subtitle="Building communities, raising awareness, and creating lasting impact in the fight against tuberculosis."
+    height="medium"
+    backgroundImage="/images/hero-events.jpg"
+  />
+
+  <!-- Upcoming Events -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeading
+        title="Upcoming Events"
+        subtitle="Join us at our next events and be part of the movement to end TB."
+        centered
+      />
+
+      <div class="mt-12 space-y-8">
+        {upcomingEvents.map((event) => (
+          <div class="observe-animate" data-animate="animate-fade-in-up">
+            <div class="relative glass-card rounded-2xl overflow-hidden border-2 border-primary/20">
+              <div class="grid lg:grid-cols-5 gap-0">
+                <div class="lg:col-span-2 h-64 lg:h-auto bg-gradient-to-br from-primary/10 to-gray-100">
+                  <img src={event.image} alt={event.title} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <div class="lg:col-span-3 p-8 lg:p-12 flex flex-col justify-center">
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class={`px-3 py-1 text-xs font-medium rounded-full ${typeColors[event.type] || 'bg-gray-100 text-gray-800'}`}>
+                      {event.type}
+                    </span>
+                    {event.featured && (
+                      <span class="px-3 py-1 text-xs font-medium rounded-full bg-primary text-white">
+                        Featured
+                      </span>
+                    )}
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-3" style="font-family: var(--font-heading);">
+                    {event.title}
+                  </h3>
+                  <div class="flex flex-wrap gap-4 text-sm text-gray-500 mb-4">
+                    <span class="flex items-center gap-1.5">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      {event.date}
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      {event.location}
+                    </span>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed mb-6">{event.description}</p>
+                  <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-all duration-200 text-sm w-fit">
+                    Get Involved
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Events -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeading
+        title="Past Events"
+        subtitle="A look back at the events that have helped shape our mission and community impact."
+        centered
+      />
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {pastEvents.map((event, index) => (
+          <div
+            class="observe-animate glass-card rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            data-animate="animate-fade-in-up"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <div class="h-48 bg-gradient-to-br from-primary/10 to-gray-100 relative">
+              <img src={event.image} alt={event.title} class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute top-3 left-3">
+                <span class={`px-3 py-1 text-xs font-medium rounded-full ${typeColors[event.type] || 'bg-gray-100 text-gray-800'}`}>
+                  {event.type}
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
+                <span class="flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {event.date}
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  </svg>
+                  {event.location}
+                </span>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">{event.title}</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">{event.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeading
+        title="Ongoing Projects"
+        subtitle="Our ongoing initiatives that are making a tangible difference in the fight against TB."
+        centered
+      />
+
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+        {projects.map((project, index) => (
+          <div
+            class="observe-animate glass-card rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
+            data-animate="animate-fade-in-up"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <div class="grid sm:grid-cols-5 gap-0">
+              <div class="sm:col-span-2 h-48 sm:h-auto bg-gradient-to-br from-primary/10 to-gray-100">
+                <img src={project.image} alt={project.title} class="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div class="sm:col-span-3 p-6 flex flex-col justify-center">
+                <span class="text-xs text-primary font-medium uppercase tracking-wider mb-2">{project.category}</span>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">{project.title}</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">{project.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Advocacy Section -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <div class="glass-primary rounded-2xl p-10 sm:p-14 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6" style="font-family: var(--font-heading);">
+          Share Your Story
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Tell us your story to help impact our journey of redefining how people perceive TB (tuberculosis). You can be the voice needed to change the way people see TB patients based on what you have experienced as someone that has or had TB.
+        </p>
+        <div class="text-left max-w-md mx-auto mt-8 mb-8 space-y-3">
+          <p class="text-sm text-gray-700 flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0"></span>
+            What was your experience?
+          </p>
+          <p class="text-sm text-gray-700 flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0"></span>
+            How did people treat you after finding out that you had TB?
+          </p>
+          <p class="text-sm text-gray-700 flex items-start gap-3">
+            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0"></span>
+            Did you have access to medical care?
+          </p>
+        </div>
+        <a href="/contact" class="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-all duration-200 text-sm">
+          Reach Out and Make the Difference
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: var(--font-heading);">
+        Be the Change That You Want to See in the World
+      </h2>
+      <p class="text-gray-600 mb-8">
+        Every event, every project, and every voice counts in the fight against TB. Get involved today.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="px-8 py-3.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-all duration-200 text-sm">
+          Get Involved
+        </a>
+        <a href="/donations" class="px-8 py-3.5 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-200 text-sm border border-gray-200">
+          Support Our Work
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
