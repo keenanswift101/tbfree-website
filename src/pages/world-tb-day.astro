@@ -1,0 +1,396 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+---
+
+<Layout title="World TB Day" description="Learn about the history of World TB Day, why we commemorate it every March 24th, and TB Free Foundation's role in the fight against tuberculosis in Namibia.">
+  <Hero
+    title="World TB Day"
+    subtitle="Every year on March 24th, the world unites to raise awareness about the devastating impact of tuberculosis — and to accelerate efforts to end the epidemic."
+    backgroundImage="/images/tbfreenam.png"
+  />
+
+  <!-- What is World TB Day -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="observe-animate" data-animate="animate-fade-in-up">
+          <p class="text-primary font-semibold text-sm uppercase tracking-wider mb-3">March 24th</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6" style="font-family: var(--font-heading);">
+            What Is World TB Day?
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            World TB Day is observed every year on <strong>March 24th</strong> to raise public awareness about the devastating health, social, and economic consequences of tuberculosis. It also serves as a global call to action to step up efforts to end the TB epidemic.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            This date marks the day in <strong>1882</strong> when Dr. Robert Koch announced his discovery of <em>Mycobacterium tuberculosis</em>, the bacterium that causes TB. His groundbreaking discovery opened the way toward diagnosing and curing this disease.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Despite being preventable and curable, TB remains one of the world's deadliest infectious diseases. Each day, over <strong>4,100 people</strong> lose their lives to TB, and nearly <strong>28,000 people</strong> fall ill with this preventable and curable disease.
+          </p>
+        </div>
+        <div class="observe-animate" data-animate="animate-fade-in-up">
+          <div class="rounded-2xl overflow-hidden shadow-lg bg-gray-200 h-72 flex items-center justify-center">
+            <div class="text-center text-gray-400">
+              <svg class="w-12 h-12 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+              <span class="text-sm font-medium">Photo coming soon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline / History -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center observe-animate mb-16" data-animate="animate-fade-in-up">
+        <SectionHeading
+          title="The History of World TB Day"
+          subtitle="Key milestones in the fight against tuberculosis — a disease that has affected humanity for thousands of years."
+          centered
+        />
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative max-w-3xl mx-auto">
+        <!-- Vertical line -->
+        <div class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-primary/20"></div>
+
+        <div class="space-y-10">
+
+          <!-- 1882 -->
+          <div class="relative pl-14 md:pl-20 observe-animate" data-animate="animate-fade-in-up">
+            <div class="absolute left-1.5 md:left-5.5 top-6 w-6 h-6 bg-primary rounded-full border-4 border-gray-50 shadow-sm z-10"></div>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <span class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full mb-3">1882</span>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">Discovery of TB Bacterium</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">Dr. Robert Koch presented his discovery of <em>Mycobacterium tuberculosis</em> to a group of scientists in Berlin, revealing the cause of TB for the first time.</p>
+            </div>
+          </div>
+
+          <!-- 1921 -->
+          <div class="relative pl-14 md:pl-20 observe-animate" data-animate="animate-fade-in-up">
+            <div class="absolute left-1.5 md:left-5.5 top-6 w-6 h-6 bg-primary rounded-full border-4 border-gray-50 shadow-sm z-10"></div>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <span class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full mb-3">1921</span>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">BCG Vaccine Developed</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">The Bacillus Calmette-Guérin (BCG) vaccine was first used in humans. It remains the only licensed vaccine against TB and is still widely used today.</p>
+            </div>
+          </div>
+
+          <!-- 1943 -->
+          <div class="relative pl-14 md:pl-20 observe-animate" data-animate="animate-fade-in-up">
+            <div class="absolute left-1.5 md:left-5.5 top-6 w-6 h-6 bg-primary rounded-full border-4 border-gray-50 shadow-sm z-10"></div>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <span class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full mb-3">1943</span>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">First TB Antibiotic</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">Streptomycin, the first antibiotic effective against TB, was discovered by Albert Schatz and Selman Waksman, revolutionizing TB treatment.</p>
+            </div>
+          </div>
+
+          <!-- 1982 -->
+          <div class="relative pl-14 md:pl-20 observe-animate" data-animate="animate-fade-in-up">
+            <div class="absolute left-1.5 md:left-5.5 top-6 w-6 h-6 bg-[#f4a261] rounded-full border-4 border-gray-50 shadow-sm z-10"></div>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 ring-2 ring-[#f4a261]/20">
+              <span class="inline-block bg-[#f4a261] text-white text-xs font-bold px-3 py-1 rounded-full mb-3">1982</span>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">First World TB Day</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">The first World TB Day was sponsored by the World Health Organization (WHO) and the International Union Against Tuberculosis and Lung Disease, marking the centennial of Dr. Koch's announcement.</p>
+            </div>
+          </div>
+
+          <!-- 2014 -->
+          <div class="relative pl-14 md:pl-20 observe-animate" data-animate="animate-fade-in-up">
+            <div class="absolute left-1.5 md:left-5.5 top-6 w-6 h-6 bg-primary rounded-full border-4 border-gray-50 shadow-sm z-10"></div>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <span class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full mb-3">2014</span>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">WHO End TB Strategy</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">The World Health Assembly approved the WHO End TB Strategy, with a vision of a world free of tuberculosis — zero deaths, disease, and suffering due to TB.</p>
+            </div>
+          </div>
+
+          <!-- 2018 -->
+          <div class="relative pl-14 md:pl-20 observe-animate" data-animate="animate-fade-in-up">
+            <div class="absolute left-1.5 md:left-5.5 top-6 w-6 h-6 bg-primary rounded-full border-4 border-gray-50 shadow-sm z-10"></div>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <span class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full mb-3">2018</span>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">First UN High-Level Meeting on TB</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">World leaders convened the first-ever UN High-Level Meeting on TB, resulting in a political declaration with commitments to accelerate the global TB response.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TB by the Numbers -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center observe-animate mb-16" data-animate="animate-fade-in-up">
+        <SectionHeading
+          title="TB by the Numbers"
+          subtitle="Understanding the scale of the tuberculosis epidemic worldwide and in Namibia."
+          centered
+        />
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center observe-animate" data-animate="animate-fade-in-up">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <p class="text-4xl font-bold text-primary mb-2" style="font-family: var(--font-heading);">10.6M</p>
+          <p class="text-gray-600 text-sm">People fell ill with TB globally in 2024</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center observe-animate" data-animate="animate-fade-in-up">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <p class="text-4xl font-bold text-primary mb-2" style="font-family: var(--font-heading);">1.3M</p>
+          <p class="text-gray-600 text-sm">Deaths from TB annually — making it the top infectious disease killer</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center observe-animate" data-animate="animate-fade-in-up">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <p class="text-4xl font-bold text-primary mb-2" style="font-family: var(--font-heading);">85%</p>
+          <p class="text-gray-600 text-sm">Treatment success rate — TB is preventable and curable</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center observe-animate" data-animate="animate-fade-in-up">
+          <div class="w-16 h-16 bg-[#f4a261]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-[#f4a261]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <p class="text-4xl font-bold text-[#f4a261] mb-2" style="font-family: var(--font-heading);">Namibia</p>
+          <p class="text-gray-600 text-sm">Among the top 30 high TB burden countries in the world</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why We Commemorate -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center observe-animate mb-16" data-animate="animate-fade-in-up">
+        <SectionHeading
+          title="Why We Commemorate World TB Day"
+          subtitle="World TB Day is more than a date on the calendar — it's a powerful moment to unite voices, challenge stigma, and demand action."
+          centered
+        />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 observe-animate" data-animate="animate-fade-in-up">
+          <img src="/images/image24.png" alt="TB awareness campaign" class="w-full h-56 object-contain p-2" loading="lazy" />
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Raise Awareness</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              TB is often called the "forgotten pandemic." World TB Day brings critical attention to a disease that still kills over a million people every year.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 observe-animate" data-animate="animate-fade-in-up">
+          <img src="/images/image34.1.png" alt="TB survivors sharing their stories" class="w-full h-56 object-contain p-2" loading="lazy" />
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Fight Stigma</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              By sharing stories of TB survivors and champions, we break down barriers and show that TB can affect anyone — and that recovery is possible.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 observe-animate" data-animate="animate-fade-in-up">
+          <img src="/images/image1.png" alt="Advocacy and policy engagement" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Demand Action</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              World TB Day is a platform to hold governments accountable, push for increased funding, and advocate for policies that protect the most vulnerable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TB Free Foundation's Role -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-xl overflow-hidden shadow-md">
+              <img src="/images/image32.png" alt="TB Free Foundation team at advocacy event" class="w-full h-56 object-contain object-top p-2" loading="lazy" />
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-md mt-8">
+              <img src="/images/image2.png" alt="TB Free Foundation World TB Day observance" class="w-full h-48 object-cover" loading="lazy" />
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-md">
+              <img src="/images/image6.png" alt="TB Free Foundation community engagement" class="w-full h-48 object-cover" loading="lazy" />
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-md mt-8">
+              <img src="/images/image10.png" alt="TB Free Foundation health outreach" class="w-full h-48 object-cover" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 observe-animate" data-animate="animate-fade-in-up">
+          <p class="text-primary font-semibold text-sm uppercase tracking-wider mb-3">Our Impact</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6" style="font-family: var(--font-heading);">
+            TB Free Foundation's Role in Namibia
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            The TB Free Foundation of Namibia was founded by <strong>Karin Husselmann</strong>, a TB survivor whose personal journey fuelled a lifelong commitment to advocating for those affected by tuberculosis.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Our mission is to break the barriers that prevent Namibians from accessing diagnosis, treatment, and support. As a leading civil society voice on TB in Namibia, we work closely with the Ministry of Health and Social Services, international health bodies, and local communities.
+          </p>
+          <div class="space-y-4 mt-8">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 shrink-0">
+                <svg class="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <p class="text-gray-600"><strong>Advocacy & Policy:</strong> Engaging government officials and policymakers to prioritize TB funding and patient rights</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 shrink-0">
+                <svg class="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <p class="text-gray-600"><strong>Community Outreach:</strong> Donating resources like e-bikes to healthcare workers in remote regions like Tsumkwe</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 shrink-0">
+                <svg class="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <p class="text-gray-600"><strong>Awareness Campaigns:</strong> Leading World TB Day commemorations and media campaigns to fight stigma</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 shrink-0">
+                <svg class="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <p class="text-gray-600"><strong>Survivor Support:</strong> Amplifying the voices of TB champions and survivors across Namibia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TB in Namibia -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 relative bg-[#1a1a2e]" style="background-image: url('/images/tbfreenam.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="absolute inset-0 bg-[#1a1a2e]/85"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="text-center observe-animate mb-16" data-animate="animate-fade-in-up">
+        <p class="text-[#f4a261] font-semibold text-sm uppercase tracking-wider mb-3">The Namibian Context</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4" style="font-family: var(--font-heading);">
+          TB in Namibia
+        </h2>
+        <p class="text-white/70 max-w-2xl mx-auto">
+          Namibia faces a significant TB burden, compounded by HIV co-infection, poverty, and limited healthcare access in rural areas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white/15 backdrop-blur-sm rounded-2xl p-8 border border-white/20 observe-animate" data-animate="animate-fade-in-up">
+          <h3 class="text-lg font-bold text-white mb-2">High TB Incidence</h3>
+          <p class="text-white/80 text-sm leading-relaxed">Namibia is among the WHO's top 30 high TB burden countries, with a TB incidence of approximately 423 per 100,000 people.</p>
+        </div>
+
+        <div class="bg-white/15 backdrop-blur-sm rounded-2xl p-8 border border-white/20 observe-animate" data-animate="animate-fade-in-up">
+          <h3 class="text-lg font-bold text-white mb-2">TB-HIV Co-infection</h3>
+          <p class="text-white/80 text-sm leading-relaxed">A significant proportion of TB cases in Namibia are among people living with HIV, making diagnosis and treatment more complex.</p>
+        </div>
+
+        <div class="bg-white/15 backdrop-blur-sm rounded-2xl p-8 border border-white/20 observe-animate" data-animate="animate-fade-in-up">
+          <h3 class="text-lg font-bold text-white mb-2">Rural Challenges</h3>
+          <p class="text-white/80 text-sm leading-relaxed">Many communities in Namibia — like Tsumkwe and the Omaheke region — face severe barriers to healthcare access, including distance and lack of transport.</p>
+        </div>
+
+        <div class="bg-white/15 backdrop-blur-sm rounded-2xl p-8 border border-white/20 observe-animate" data-animate="animate-fade-in-up">
+          <h3 class="text-lg font-bold text-white mb-2">Stigma & Discrimination</h3>
+          <p class="text-white/80 text-sm leading-relaxed">Fear and social stigma continue to prevent many Namibians from seeking TB testing and treatment, leading to delayed diagnosis and increased transmission.</p>
+        </div>
+
+        <div class="bg-white/15 backdrop-blur-sm rounded-2xl p-8 border border-white/20 observe-animate" data-animate="animate-fade-in-up">
+          <h3 class="text-lg font-bold text-white mb-2">Progress & Hope</h3>
+          <p class="text-white/80 text-sm leading-relaxed">Through dedicated advocacy, community health workers, and partnerships with organizations like TB Free Foundation, Namibia is making strides toward ending TB.</p>
+        </div>
+
+        <div class="bg-white/15 backdrop-blur-sm rounded-2xl p-8 border border-white/20 observe-animate" data-animate="animate-fade-in-up">
+          <h3 class="text-lg font-bold text-white mb-2">Civil Society Voice</h3>
+          <p class="text-white/80 text-sm leading-relaxed">TB Free Foundation serves as a crucial bridge between communities and government, ensuring that the voices of TB-affected people are heard in policy discussions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How You Can Help -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="observe-animate" data-animate="animate-fade-in-up">
+        <p class="text-primary font-semibold text-sm uppercase tracking-wider mb-3">Take Action</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6" style="font-family: var(--font-heading);">
+          How You Can Make a Difference
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-12 max-w-2xl mx-auto">
+          Every action counts in the fight against tuberculosis. Whether you spread the word, volunteer your time, or contribute financially, your support helps save lives.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 observe-animate" data-animate="animate-fade-in-up">
+          <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Spread the Word</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Share TB facts on social media. Use the hashtag <strong>#TBFreeNamibia</strong> , <strong>#EndTB</strong> and <strong>#WorldTBDay</strong> to amplify the message.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 observe-animate" data-animate="animate-fade-in-up">
+          <div class="w-16 h-16 bg-[#f4a261] rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Volunteer</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Join TB Free Foundation as a volunteer. Help with community outreach, events, or administrative support.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 observe-animate" data-animate="animate-fade-in-up">
+          <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Donate</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Your generous donations funds awareness campaigns, nutrition programs, and advocacy campaigns for high schools.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center observe-animate" data-animate="animate-fade-in-up">
+        <a href="/donations" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all duration-200">
+          Donate Now
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+        </a>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary font-semibold rounded-lg border-2 border-primary hover:bg-primary/5 transition-all duration-200">
+          Get In Touch
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

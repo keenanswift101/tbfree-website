@@ -9,7 +9,8 @@ import SectionHeading from '../components/SectionHeading.astro';
     title="Who We Are"
     subtitle="A not-for-profit civil society organization dedicated to the fight against tuberculosis and the creation of a world free from the disease."
     height="medium"
-    backgroundImage="/images/hero-who-we-are.jpg"
+    backgroundImage="/images/tbfreenam.png"
+    imageClass="object-cover object-center"
   />
 
   <!-- About Section -->
@@ -20,28 +21,28 @@ import SectionHeading from '../components/SectionHeading.astro';
           <SectionHeading title="TB Free Namibia" />
           <div class="space-y-6 text-gray-600 leading-relaxed">
             <p>
-              The TB Free Foundation is a not-for-profit civil society organization that was established to work collaboratively towards the END TB goals and advocate for TB patients throughout Namibia.
+              The TB Free Foundation is a not-for-profit civil society organisation established to work collaboratively toward the END TB goals and to advocate for TB patients across Namibia.
             </p>
             <p>
-              The organization is dedicated to the fight against tuberculosis (TB) and the creation of a world free from the disease. Our mission is deeply rooted in advocating for the rights of TB patients, ensuring equitable access to healthcare, diagnostics, and treatment, and increasing awareness and education about TB in our communities.
+              We are dedicated to the fight against tuberculosis and to building a world free from the disease. Our work is rooted in advocating for the rights of TB patients, ensuring equitable access to healthcare, diagnostics, and treatment, and raising awareness and education about TB in the communities we serve.
             </p>
             <p>
-              Founded by a TB survivor who faced stigma and isolation, we fight every day for those who do not have a voice.
+              Founded by a TB survivor who experienced firsthand the stigma and isolation that so often accompanies the disease, we fight every day for those who have no voice.
             </p>
             <p>
-              TB FREE Foundation supports the global approach of community mobilization and engagement in the fight against disease and improved healthy living, including the fight against Tuberculosis. It supports the people- and community-centered strategies that the National TB Strategic Plan for 2022/2023-2027/2028 proposes to create an enabling environment with greater consideration for equality and equal access to health care thereby reducing discrimination and stigma.
+              The TB Free Foundation aligns its work with Namibia's National TB Strategic Plan 2022/23–2027/28, supporting people- and community-centred strategies that foster an enabling environment built on equality, equal access to healthcare, and the reduction of discrimination and stigma.
             </p>
             <p>
-              The foundation further supports the WHO people-centered framework for TB planning that is based on the continuum of care, using epidemiological and system related information and plans according to a root cause analysis that prioritize and optimize interventions.
+              We further embrace the WHO people-centred framework for TB planning, which is grounded in a continuum of care approach — drawing on epidemiological and health system data and prioritising interventions through root cause analysis to achieve the greatest possible impact.
             </p>
           </div>
         </div>
         <div class="observe-animate" data-animate="animate-slide-right">
-          <div class="glass-card rounded-2xl overflow-hidden">
+          <div class="rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
             <img
-              src="/images/who-we-are-team.jpg"
+              src="/images/image35.png"
               alt="TB Free Foundation Namibia team"
-              class="w-full h-96 object-cover"
+              class="w-full h-full object-contain p-2"
               loading="lazy"
             />
           </div>
@@ -57,15 +58,15 @@ import SectionHeading from '../components/SectionHeading.astro';
         <SectionHeading title="The Leaders" subtitle="Meet the people behind the mission to end TB in Namibia." centered />
       </div>
 
-      <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Chairperson -->
         <div class="observe-animate" data-animate="animate-fade-in-up">
-          <div class="glass-card rounded-2xl overflow-hidden text-center">
-            <div class="h-72 bg-gradient-to-br from-primary/10 to-gray-100 relative">
+          <div class="bg-white rounded-2xl overflow-hidden text-center shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="h-80 bg-gradient-to-br from-primary/10 to-gray-100 relative">
               <img
-                src="/images/leader-taime.jpg"
+                src="/images/chairperson.png"
                 alt="Dr. Taime Sylvester - Chairperson of TB Free Namibia"
-                class="w-full h-full object-cover"
+                class="absolute inset-0 w-full h-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -73,20 +74,20 @@ import SectionHeading from '../components/SectionHeading.astro';
               <p class="text-xs text-primary uppercase tracking-wider font-medium mb-2">The Chairperson</p>
               <h3 class="text-xl font-bold text-gray-900 mb-3">Dr. Taime Sylvester</h3>
               <p class="text-sm text-gray-600 leading-relaxed">
-                Leading the TB Free Foundation with expertise in public health and a commitment to ending tuberculosis in Namibia.
+                Dr. Taime Sylvester brings a wealth of public health expertise to her role as Chairperson, leading the TB Free Foundation with vision, dedication, and an unwavering commitment to ending tuberculosis in Namibia.
               </p>
             </div>
           </div>
         </div>
 
         <!-- Founder -->
-        <div class="observe-animate delay-200" data-animate="animate-fade-in-up">
-          <div class="glass-card rounded-2xl overflow-hidden text-center">
-            <div class="h-72 bg-gradient-to-br from-primary/10 to-gray-100 relative">
+        <div class="observe-animate delay-100" data-animate="animate-fade-in-up">
+          <div class="bg-white rounded-2xl overflow-hidden text-center shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="h-80 bg-gradient-to-br from-primary/10 to-gray-100 relative">
               <img
-                src="/images/leader-karin.jpg"
+                src="/images/founder.png"
                 alt="Karin Husselmann - Founder of TB Free Namibia"
-                class="w-full h-full object-cover"
+                class="absolute inset-0 w-full h-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -94,7 +95,105 @@ import SectionHeading from '../components/SectionHeading.astro';
               <p class="text-xs text-primary uppercase tracking-wider font-medium mb-2">The Founder</p>
               <h3 class="text-xl font-bold text-gray-900 mb-3">Karin Husselmann</h3>
               <p class="text-sm text-gray-600 leading-relaxed">
-                A TB survivor who founded the organization to fight for those without a voice and break down the stigma around tuberculosis.
+                Karin Husselmann is a TB survivor, a tireless advocate, and the driving force behind the TB Free Foundation — built from personal experience and a fierce determination to break the stigma around tuberculosis. A survivor on a mission to ensure no one fights TB alone.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vice-Chairperson -->
+        <div class="observe-animate delay-200" data-animate="animate-fade-in-up">
+          <div class="bg-white rounded-2xl overflow-hidden text-center shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="h-80 bg-gradient-to-br from-primary/10 to-gray-100 relative flex items-center justify-center">
+              <div class="w-28 h-28 rounded-full bg-primary/20 flex items-center justify-center">
+                <span class="text-4xl font-bold text-primary/50">NH</span>
+              </div>
+            </div>
+            <div class="p-8">
+              <p class="text-xs text-primary uppercase tracking-wider font-medium mb-2">Vice-Chairperson</p>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Dr. Ndauda Hapulipe</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Bringing expertise and dedication to the TB Free Foundation's leadership and advocacy mission.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder 1 -->
+        <div class="observe-animate delay-300" data-animate="animate-fade-in-up">
+          <div class="bg-white rounded-2xl overflow-hidden text-center shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="h-80 bg-gradient-to-br from-gray-100 to-gray-200 relative flex items-center justify-center">
+              <div class="w-28 h-28 rounded-full bg-gray-300 flex items-center justify-center">
+                <svg class="w-14 h-14 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="p-8">
+              <p class="text-xs text-gray-400 uppercase tracking-wider font-medium mb-2">Board Member</p>
+              <h3 class="text-xl font-bold text-gray-400 mb-3">Coming Soon</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                This position will be announced shortly.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder 2 -->
+        <div class="observe-animate delay-300" data-animate="animate-fade-in-up">
+          <div class="bg-white rounded-2xl overflow-hidden text-center shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="h-80 bg-gradient-to-br from-gray-100 to-gray-200 relative flex items-center justify-center">
+              <div class="w-28 h-28 rounded-full bg-gray-300 flex items-center justify-center">
+                <svg class="w-14 h-14 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="p-8">
+              <p class="text-xs text-gray-400 uppercase tracking-wider font-medium mb-2">Board Member</p>
+              <h3 class="text-xl font-bold text-gray-400 mb-3">Coming Soon</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                This position will be announced shortly.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder 3 -->
+        <div class="observe-animate delay-300" data-animate="animate-fade-in-up">
+          <div class="bg-white rounded-2xl overflow-hidden text-center shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="h-80 bg-gradient-to-br from-gray-100 to-gray-200 relative flex items-center justify-center">
+              <div class="w-28 h-28 rounded-full bg-gray-300 flex items-center justify-center">
+                <svg class="w-14 h-14 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="p-8">
+              <p class="text-xs text-gray-400 uppercase tracking-wider font-medium mb-2">Board Member</p>
+              <h3 class="text-xl font-bold text-gray-400 mb-3">Coming Soon</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                This position will be announced shortly.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder 4 -->
+        <div class="observe-animate delay-300" data-animate="animate-fade-in-up">
+          <div class="bg-white rounded-2xl overflow-hidden text-center shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="h-80 bg-gradient-to-br from-gray-100 to-gray-200 relative flex items-center justify-center">
+              <div class="w-28 h-28 rounded-full bg-gray-300 flex items-center justify-center">
+                <svg class="w-14 h-14 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="p-8">
+              <p class="text-xs text-gray-400 uppercase tracking-wider font-medium mb-2">Board Member</p>
+              <h3 class="text-xl font-bold text-gray-400 mb-3">Coming Soon</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                This position will be announced shortly.
               </p>
             </div>
           </div>
@@ -107,9 +206,9 @@ import SectionHeading from '../components/SectionHeading.astro';
   <section class="py-24 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
       <div class="relative rounded-2xl overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-primary-dark to-gray-900">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-primary-dark to-[#1a1a2e]">
           <img
-            src="/images/commitment-bg.jpg"
+            src="/images/image26.png"
             alt="Community outreach work"
             class="w-full h-full object-cover opacity-20"
             loading="lazy"
@@ -120,7 +219,7 @@ import SectionHeading from '../components/SectionHeading.astro';
             Our Commitment
           </h2>
           <p class="text-white/80 text-lg leading-relaxed mb-8">
-            The TB Free Foundation is driven by the belief that no one should be left behind in the fight against TB. We stand alongside patients, survivors, and healthcare workers, using our platform to amplify their voices and ensure that they receive the care and support they deserve.
+            At the TB Free Foundation, we believe that no one should be left behind in the fight against TB. We walk alongside patients, survivors, and healthcare workers — amplifying their voices and advocating for the care, dignity, and support they deserve. Because no one should face tuberculosis alone.
           </p>
           <div class="section-divider mx-auto" style="background: linear-gradient(to right, white, transparent);"></div>
         </div>
@@ -128,41 +227,133 @@ import SectionHeading from '../components/SectionHeading.astro';
     </div>
   </section>
 
-  <!-- Board Expertise -->
+  <!-- Our Mission and Vision -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 relative" style="background-image: url('/images/tbfreenam.png'); background-size: cover; background-position: center;">
+    <div class="absolute inset-0 bg-[#1a1a2e]/80"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="text-center mb-16 observe-animate" data-animate="animate-fade-in-up">
+        <p class="text-[#f4a261] font-semibold text-sm uppercase tracking-wider mb-3">Purpose &amp; Direction</p>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white" style="font-family: var(--font-heading);">Our Mission &amp; Vision</h2>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Mission -->
+        <div class="observe-animate" data-animate="animate-slide-left">
+          <div class="bg-white/70 rounded-2xl p-12 border border-white/60 h-full" style="backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6" style="font-family: var(--font-heading);">Our Mission</h3>
+            <p class="text-gray-800 text-lg leading-relaxed">
+              To advocate for TB patients and communities throughout Namibia, breaking down barriers to access diagnosis, treatment, and support — ensuring no one is left behind in the fight to END TB.
+            </p>
+          </div>
+        </div>
+        <!-- Vision -->
+        <div class="observe-animate delay-200" data-animate="animate-slide-right">
+          <div class="bg-white/70 rounded-2xl p-12 border border-white/60 h-full" style="backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6" style="font-family: var(--font-heading);">Our Vision</h3>
+            <p class="text-gray-800 text-lg leading-relaxed">
+              A Namibia — and ultimately a world — free from tuberculosis, where every person has equitable access to healthcare, and TB is no longer a source of stigma or suffering.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Aims -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 observe-animate" data-animate="animate-fade-in-up">
+        <SectionHeading title="Our Aims" centered />
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 observe-animate" data-animate="animate-fade-in-up">
+          <img src="/images/image27.png" alt="Increase TB awareness" class="w-full h-32 object-contain p-3" loading="lazy" />
+          <div class="p-6 text-center">
+            <h3 class="font-bold text-gray-900 mb-2">Increase TB Awareness</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Educating communities across Namibia about tuberculosis — its prevention, symptoms, and the critical importance of early diagnosis.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 observe-animate delay-100" data-animate="animate-fade-in-up">
+          <img src="/images/image28.png" alt="Champion advocacy campaigns" class="w-full h-32 object-contain p-3" loading="lazy" />
+          <div class="p-6 text-center">
+            <h3 class="font-bold text-gray-900 mb-2">Champion Advocacy Campaigns</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Leading national and community-level campaigns to put TB firmly on the policy agenda and hold decision-makers accountable for change.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 observe-animate delay-200" data-animate="animate-fade-in-up">
+          <img src="/images/image29.png" alt="Develop strategic educational programmes" class="w-full h-32 object-contain p-3" loading="lazy" />
+          <div class="p-6 text-center">
+            <h3 class="font-bold text-gray-900 mb-2">Develop Strategic Educational Programmes</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Supporting innovation and research to build evidence-based educational initiatives that create lasting impact in the communities we serve.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 observe-animate" data-animate="animate-fade-in-up">
+          <img src="/images/image30.png" alt="Identify and treat TB patients" class="w-full h-32 object-contain p-3" loading="lazy" />
+          <div class="p-6 text-center">
+            <h3 class="font-bold text-gray-900 mb-2">Identify &amp; Treat TB Patients</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Ensuring every TB patient receives high-quality care and treatment, with dedicated support throughout every stage of their journey.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 observe-animate delay-100" data-animate="animate-fade-in-up">
+          <img src="/images/image31.png" alt="Break down stigma and discrimination" class="w-full h-32 object-contain p-3" loading="lazy" />
+          <div class="p-6 text-center">
+            <h3 class="font-bold text-gray-900 mb-2">Break Down Stigma &amp; Discrimination</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Working tirelessly to eliminate the social stigma surrounding TB — empowering survivors to reclaim their stories and live with dignity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Strength -->
   <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
     <div class="max-w-7xl mx-auto">
-      <SectionHeading
-        title="Our Strength"
-        subtitle="A diverse group of professionals united in the fight against TB."
-        centered
-      />
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-        {[
-          { label: 'Scientists', description: 'Research expertise in TB management' },
-          { label: 'Medical Officers', description: 'Clinical knowledge and patient care' },
-          { label: 'Public Health Specialists', description: 'Population-level disease prevention' },
-          { label: 'Patient Advocates', description: 'Lived experience and community voice' },
-        ].map((item) => (
-          <div class="glass-card rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
-            <h3 class="font-semibold text-gray-900 mb-2">{item.label}</h3>
-            <p class="text-sm text-gray-600">{item.description}</p>
-          </div>
-        ))}
+      <div class="text-center mb-16 observe-animate" data-animate="animate-fade-in-up">
+        <SectionHeading
+          title="Our Strength"
+          subtitle="Behind the TB Free Foundation is a diverse team of dedicated professionals, each bringing unique expertise and a shared commitment to ending tuberculosis in Namibia."
+          centered
+        />
       </div>
-      <div class="mt-12 glass-card rounded-xl p-8">
-        <div class="grid sm:grid-cols-3 gap-8 text-center">
-          <div>
-            <p class="text-3xl font-bold text-primary">15+</p>
-            <p class="text-sm text-gray-600 mt-1">Years combined experience</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Scientists -->
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 observe-animate" data-animate="animate-fade-in-up">
+          <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15m-6.075-10.896c.251.023.501.05.75.082M19.8 15l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.607L5 14.5m14.8.5-1.175 2.91a9 9 0 01-8.25 0L5 14.5" />
+            </svg>
           </div>
-          <div>
-            <p class="text-3xl font-bold text-primary">National</p>
-            <p class="text-sm text-gray-600 mt-1">TB Strategic Plan aligned</p>
+          <h3 class="font-bold text-gray-900 mb-3 text-lg">Scientists</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Driving research and evidence-based approaches to TB management and care.</p>
+        </div>
+        <!-- Medical Officers -->
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 observe-animate delay-100" data-animate="animate-fade-in-up">
+          <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+            </svg>
           </div>
-          <div>
-            <p class="text-3xl font-bold text-primary">MoHSS</p>
-            <p class="text-sm text-gray-600 mt-1">Government partnership</p>
+          <h3 class="font-bold text-gray-900 mb-3 text-lg">Medical Officers</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Bringing frontline clinical knowledge and a deep commitment to patient care.</p>
+        </div>
+        <!-- Public Health Specialists -->
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 observe-animate delay-200" data-animate="animate-fade-in-up">
+          <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253M3 12c0 .778.099 1.533.284 2.253" />
+            </svg>
           </div>
+          <h3 class="font-bold text-gray-900 mb-3 text-lg">Public Health Specialists</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Applying population-level expertise to prevent the spread of disease and protect communities.</p>
+        </div>
+        <!-- Patient Advocates -->
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 observe-animate delay-300" data-animate="animate-fade-in-up">
+          <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+            <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-gray-900 mb-3 text-lg">Patient Advocates</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">The heart of our work — bringing lived experience, community insight, and a powerful human voice to everything we do.</p>
         </div>
       </div>
     </div>

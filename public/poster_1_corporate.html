@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Challenge - 560 to Break Barriers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@700&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .poster {
+            width: 800px;
+            height: 1200px;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.6);
+        }
+
+        /* Decorative background elements */
+        .bg-stripe {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(45deg, transparent 30%, rgba(220, 38, 38, 0.15) 50%, transparent 70%);
+            top: -100px;
+            right: -150px;
+            transform: rotate(-25deg);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: rotate(-25deg) translateY(0); }
+            50% { transform: rotate(-25deg) translateY(-20px); }
+        }
+
+        .bg-circle {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border: 2px solid rgba(220, 38, 38, 0.2);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -100px;
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 60px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .campaign-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 52px;
+            letter-spacing: 4px;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0 rgba(220, 38, 38, 0.5);
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #94a3b8;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .challenge-label {
+            background: linear-gradient(90deg, rgba(220, 38, 38, 0.2) 0%, transparent 100%);
+            border-left: 4px solid #dc2626;
+            padding: 15px 25px;
+            margin-bottom: 30px;
+        }
+
+        .challenge-label h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            color: #dc2626;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .big-ask {
+            background: rgba(220, 38, 38, 0.1);
+            border: 3px solid #dc2626;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .big-ask::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        .big-ask h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 72px;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .amount {
+            color: #dc2626;
+            font-size: 96px;
+            display: block;
+            margin: 10px 0;
+            text-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #cbd5e1;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .details {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .details p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .details strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .impact-box {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .impact-box h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .impact-box ul {
+            list-style: none;
+        }
+
+        .impact-box li {
+            color: #fff;
+            font-size: 16px;
+            line-height: 1.6;
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .impact-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #fef08a;
+        }
+
+        .footer {
+            border-top: 2px solid rgba(220, 38, 38, 0.3);
+            padding-top: 25px;
+        }
+
+        .cta {
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact {
+            text-align: center;
+            font-size: 16px;
+            color: #94a3b8;
+        }
+
+        .contact a {
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .logo-area {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #64748b;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="bg-stripe"></div>
+        <div class="bg-circle"></div>
+        
+        <div class="content">
+            <div class="header">
+                <div class="campaign-name">560 to Break Barriers</div>
+                <div class="tagline">6 Weeks | 560 km | Run • Walk • Cycle</div>
+            </div>
+
+            <div class="main-content">
+                <div class="challenge-label">
+                    <h2>Corporate Challenge</h2>
+                </div>
+
+                <div class="big-ask">
+                    <h1>CAN YOUR COMPANY<br>MATCH OR BEAT</h1>
+                    <span class="amount">N$5,600?</span>
+                    <div class="subtitle">That's my personal pledge.<br>Will you join the fight?</div>
+                </div>
+
+                <div class="details">
+                    <p><strong>I'm a TB survivor.</strong> I know the barriers firsthand — stigma, late diagnosis, treatment gaps, and poverty.</p>
+                    <p><strong>I'm running 560 km</strong> over 6 weeks and pledging <strong>N$10 per kilometre</strong> to TB Free Foundation Namibia.</p>
+                    <p><strong>I'm challenging Corporate Namibia</strong> to match or exceed my N$5,600 contribution.</p>
+                </div>
+
+                <div class="impact-box">
+                    <h3>Your N$5,600 Funds:</h3>
+                    <ul>
+                        <li>Community TB screening campaigns</li>
+                        <li>Transport for 50 patients to attend treatment</li>
+                        <li>Nutritional support for TB families</li>
+                        <li>Training for community health workers</li>
+                        <li>Research to improve TB care in Namibia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="cta">Break Barriers. Save Lives.</div>
+                <div class="contact">
+                    Contact: <a href="#">[your email]</a> | <a href="#">[your phone]</a>
+                </div>
+                <div class="logo-area">TB Free Foundation Namibia | Section 21 Not-for-Profit</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

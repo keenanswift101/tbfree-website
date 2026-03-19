@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const stories = [
+  {
+    name: "Karin Husselmann",
+    role: "TB Survivor & Founder",
+    location: "Windhoek, Namibia",
+    image: "/images/founder.png",
+    story: "Diagnosed with TB and faced with stigma from her own community, Karin refused to be silenced. Her journey from patient to founder of the TB Free Foundation is a testament to the power of turning personal pain into purpose. 'I want no one to walk the road I walked alone,' she says.",
+    quote: "TB does not define you. Your response to it does.",
+  },
+  {
+    name: "Susanna",
+    role: "TB Champion & Community Educator",
+    location: "Windhoek, Namibia",
+    image: "",
+    story: "Susanna was diagnosed with TB at 28 while caring for her young children. After completing treatment, she became one of our most passionate community educators, visiting households across the Oshana region to spread awareness and reduce stigma.",
+    quote: "I saw how fear stops people from getting tested. I had to help change that.",
+  },
+  {
+    name: "Merlyn",
+    role: "MDR-TB Survivor",
+    location: "Katutura, Windhoek",
+    image: "",
+    story: "Merlyn battled drug-resistant TB for nearly two years, enduring a gruelling treatment regimen. With support from the TB Free Foundation, she stayed the course and today mentors others going through the same difficult journey.",
+    quote: "The treatment is hard. The support made it possible.",
+  },
+  {
+    name: "Maria T.",
+    role: "Youth TB Ambassador",
+    location: "Rundu, Namibia",
+    image: "",
+    story: "At just 19, Maria contracted TB and watched her studies grind to a halt. She used her recovery period to write about her experience, sparking open conversations in her school and community that reached hundreds of young people.",
+    quote: "Young people need to hear stories like mine — so they know getting help is brave, not shameful.",
+  },
+  {
+    name: "Simon P.",
+    role: "TB/HIV Co-Infection Survivor",
+    location: "Katima Mulilo, Namibia",
+    image: "",
+    story: "Living with both HIV and TB, Simon faced a double burden — medically and socially. The integrated support he received helped him adhere to both treatment regimens. He now speaks publicly about the importance of combined HIV/TB services.",
+    quote: "Two diseases, one voice. I will keep speaking up.",
+  },
+  {
+    name: "Anna-Marie V.",
+    role: "Healthcare Worker & TB Champion",
+    location: "Swakopmund, Namibia",
+    image: "",
+    story: "Anna-Marie contracted TB on the job as a nurse. Her experience transformed how she approaches patient care — with deeper empathy, patience, and understanding. She now trains other healthcare workers on reducing TB stigma in clinical settings.",
+    quote: "When healthcare workers understand TB from the inside, everything changes.",
+  },
+];
+---
+
+<Layout title="TB Champion Stories" description="Real stories from TB survivors and champions across Namibia who are breaking barriers and inspiring their communities.">
+  <Hero
+    title="TB Champion Stories"
+    subtitle="Real voices. Real journeys. The courage of those who faced TB and chose to speak up."
+    height="medium"
+    backgroundImage="/images/image20.png"
+  />
+
+  <!-- Intro -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center observe-animate" data-animate="animate-fade-in-up">
+      <SectionHeading
+        title="Stories That Move Mountains"
+        subtitle="Behind every statistic is a person. These are the stories of TB Champions — survivors, advocates, and change-makers — who are breaking barriers every day."
+        centered
+      />
+    </div>
+  </section>
+
+  <!-- Stories Grid -->
+  <section class="pb-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      {stories.map((person) => (
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 observe-animate" data-animate="animate-fade-in-up">
+          <div class="h-64 overflow-hidden bg-gray-100">
+            {person.image ? (
+              <img src={person.image} alt={person.name} class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" loading="lazy" />
+            ) : (
+              <div class="w-full h-full bg-gray-200 flex flex-col items-center justify-center text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                <span class="text-xs">Photo coming soon</span>
+              </div>
+            )}
+          </div>
+          <div class="p-6">
+            <p class="text-xs font-semibold text-primary uppercase tracking-wider mb-1">{person.role}</p>
+            <h3 class="text-xl font-bold text-gray-900 mb-1" style="font-family: var(--font-heading);">{person.name}</h3>
+            <p class="text-xs text-gray-400 mb-4">{person.location}</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">{person.story}</p>
+            <blockquote class="border-l-4 border-primary pl-4 italic text-gray-700 text-sm">
+              "{person.quote}"
+            </blockquote>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Share Your Story CTA -->
+  <section class="py-20 bg-primary">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-black text-white mb-4" style="font-family: var(--font-heading);">Share Your Story</h2>
+      <p class="text-white/80 mb-8 text-lg">Your story has the power to change lives. If you're a TB survivor or advocate, we'd love to hear from you and share your journey.</p>
+      <a href="/contact" class="px-8 py-3.5 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors text-sm">Get in Touch</a>
+    </div>
+  </section>
+</Layout>

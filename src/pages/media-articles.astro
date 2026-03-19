@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const articles = [
+  {
+    title: "TB Free Foundation Champions Patient Rights at National Health Forum",
+    outlet: "The Namibian",
+    date: "March 2025",
+    excerpt: "Representatives from the TB Free Foundation addressed a national health forum, calling for strengthened protections for TB patients and improved access to diagnostics in rural areas.",
+    image: "/images/image1.png",
+    type: "News",
+  },
+  {
+    title: "World TB Day: Namibia's Silent Epidemic in the Spotlight",
+    outlet: "Namibia Broadcasting Corporation",
+    date: "March 2025",
+    excerpt: "On World TB Day, foundation founder Karin Husselmann spoke to NBC about the ongoing struggle to eliminate tuberculosis, and what ordinary Namibians can do to help.",
+    image: "/images/image3.png",
+    type: "Broadcast",
+  },
+  {
+    title: "Foundation Launches Community Awareness Drive in Northern Namibia",
+    outlet: "New Era Newspaper",
+    date: "January 2025",
+    excerpt: "The TB Free Foundation kicked off an extensive awareness campaign across the Oshana and Ohangwena regions, training community health workers and distributing educational materials.",
+    image: "/images/image5.png",
+    type: "News",
+  },
+  {
+    title: "Combating Stigma: How One Organisation is Changing the Conversation on TB",
+    outlet: "The Villager",
+    date: "November 2024",
+    excerpt: "A feature on the TB Free Foundation's innovative community engagement approaches, including survivor-led dialogues and school outreach programmes across Namibia.",
+    image: "/images/image7.png",
+    type: "Feature",
+  },
+  {
+    title: "TB Survivor Turned Advocate Receives Civic Recognition",
+    outlet: "Confidente Newspaper",
+    date: "September 2024",
+    excerpt: "Karin Husselmann was recognised at a civic ceremony for her decade-long commitment to TB advocacy, patient rights, and community health education in Namibia.",
+    image: "/images/image9.png",
+    type: "News",
+  },
+  {
+    title: "MDR-TB: Namibia's Growing Challenge and the Groups Fighting Back",
+    outlet: "Southern Times",
+    date: "July 2024",
+    excerpt: "An in-depth report on the rising threat of drug-resistant TB in southern Africa, featuring the work of the TB Free Foundation in Namibia.",
+    image: "/images/image12.png",
+    type: "Feature",
+  },
+];
+---
+
+<Layout title="Media Articles" description="Media coverage and press features about TB Free Foundation of Namibia's work, advocacy, and impact.">
+  <Hero
+    title="Media Articles"
+    subtitle="Our work in the news — press features, broadcast highlights, and media coverage of the TB Free Foundation."
+    height="medium"
+    backgroundImage="/images/image15.png"
+  />
+
+  <!-- Intro -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center observe-animate" data-animate="animate-fade-in-up">
+      <SectionHeading
+        title="TB Free Foundation in the Media"
+        subtitle="Amplifying the fight against TB through media partnerships and public communications — keeping Namibia informed and engaged."
+        centered
+      />
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="pb-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {articles.map((article) => (
+        <article class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 observe-animate" data-animate="animate-fade-in-up">
+          <div class="h-52 overflow-hidden relative">
+            <img src={article.image} alt={article.title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">{article.type}</span>
+          </div>
+          <div class="p-6">
+            <p class="text-xs text-gray-400 mb-2">{article.outlet} · {article.date}</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3 leading-snug" style="font-family: var(--font-heading);">{article.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{article.excerpt}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Media Enquiries CTA -->
+  <section class="py-20 bg-[#1a1a2e]">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-black text-white mb-4" style="font-family: var(--font-heading);">Media Enquiries</h2>
+      <p class="text-white/80 mb-8">Journalists and media professionals are welcome to reach out for interviews, statements, or expert commentary on TB in Namibia.</p>
+      <a href="/contact" class="px-8 py-3.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors text-sm">Contact the Foundation</a>
+    </div>
+  </section>
+</Layout>

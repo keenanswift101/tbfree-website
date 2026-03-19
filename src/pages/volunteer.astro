@@ -1,0 +1,181 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const roles = [
+  {
+    title: "Community Outreach Volunteer",
+    image: "/images/image36.jpg",
+    images: [],
+    description: "Join our community teams to conduct TB awareness sessions, distribute information materials, and support TB screening drives in your community.",
+    skills: ["Communication", "Community engagement", "Languages (Oshiwambo, Afrikaans, etc.)"],
+  },
+  {
+    title: "TB Patient Support Volunteer",
+    image: "/images/image37.jpg",
+    images: [],
+    description: "Provide compassionate, non-clinical support to TB patients during treatment — helping with transport, emotional support, and adherence encouragement.",
+    skills: ["Empathy", "Reliability", "Respect for confidentiality"],
+  },
+  {
+    title: "Communications & Social Media Volunteer",
+    image: "/images/image38.jpg",
+    images: [],
+    description: "Help amplify our message by creating content for social media, writing newsletters, and supporting our digital communications strategy.",
+    skills: ["Content creation", "Social media", "Writing", "Graphic design (bonus)"],
+  },
+  {
+    title: "Fundraising & Events Volunteer",
+    image: "/images/image39.png",
+    images: ["/images/image39.png", "/images/image46.jpg", "/images/image47.jpg", "/images/image48.jpg"],
+    description: "Support our fundraising campaigns and events — from World TB Day activities to donor engagement drives and community fundraisers.",
+    skills: ["Organisation", "Networking", "Event coordination"],
+  },
+  {
+    title: "Research & Documentation Volunteer",
+    image: "/images/image44.jpg",
+    images: ["/images/image44.jpg", "/images/image49.jpg"],
+    description: "Assist the foundation with literature reviews, data collection, report writing, and documentation of our programmes and impact.",
+    skills: ["Research skills", "Writing", "Attention to detail", "MS Office or Google Docs"],
+  },
+  {
+    title: "Youth Ambassador",
+    image: "/images/image45.jpg",
+    images: [],
+    description: "Be the face of TB awareness in schools and universities. Lead peer education sessions, organise awareness events, and inspire young Namibians to take TB seriously.",
+    skills: ["Youth engagement", "Public speaking", "Passion for health advocacy"],
+  },
+];
+
+const steps = [
+  { step: "01", title: "Fill in the form", desc: "Complete our online volunteer interest form below with your details and preferred role." },
+  { step: "02", title: "We'll be in touch", desc: "Our volunteer coordinator will contact you within 5 working days to discuss your application." },
+  { step: "03", title: "Orientation", desc: "Attend a short online or in-person orientation to learn about our work, values, and safeguarding policies." },
+  { step: "04", title: "Start making a difference", desc: "Begin your volunteer journey with full support from our team." },
+];
+---
+
+<Layout title="Volunteer" description="Volunteer with TB Free Foundation of Namibia and join the fight to end tuberculosis. Multiple roles available across Namibia.">
+  <Hero
+    title="Volunteer With Us"
+    subtitle="Give your time, skills, and passion to help end TB in Namibia. Every hour you volunteer brings us closer to a TB-free world."
+    height="medium"
+    backgroundImage="/images/image20.png"
+  />
+
+  <!-- Intro -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center observe-animate" data-animate="animate-fade-in-up">
+      <SectionHeading
+        title="Join Our Team of Changemakers"
+        subtitle="Volunteers are the heartbeat of the TB Free Foundation. Whether you have a few hours a week or dedicated time to give, there is a place for you in our mission."
+        centered
+      />
+    </div>
+  </section>
+
+  <!-- Volunteer Roles -->
+  <section class="pb-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-2xl font-black text-gray-900 mb-10 text-center observe-animate" data-animate="animate-fade-in-up" style="font-family: var(--font-heading);">Current Volunteer Opportunities</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {roles.map((role) => (
+          <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 observe-animate" data-animate="animate-fade-in-up">
+            <div class="h-48 overflow-hidden relative">
+              {role.images.length > 1 ? (
+                <div class="carousel-container relative w-full h-full" data-carousel>
+                  {role.images.map((img, i) => (
+                    <img
+                      src={img}
+                      alt={role.title}
+                      class={`carousel-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === 0 ? 'opacity-100' : 'opacity-0'}`}
+                      style="object-position: center 20%"
+                      loading="lazy"
+                    />
+                  ))}
+                  <div class="absolute bottom-2 left-0 right-0 flex justify-center gap-1.5 z-10 pointer-events-none">
+                    {role.images.map((_, i) => (
+                      <button class={`carousel-dot w-2 h-2 rounded-full transition-colors duration-300 pointer-events-auto ${i === 0 ? 'bg-white' : 'bg-white/50'}`} data-index={String(i)} aria-label={`Go to image ${i + 1}`}></button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <img src={role.image} alt={role.title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" style="object-position: center 20%" loading="lazy" />
+              )}
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-bold text-gray-900 mb-2" style="font-family: var(--font-heading);">{role.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed mb-4">{role.description}</p>
+              <div>
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Skills helpful:</p>
+                <div class="flex flex-wrap gap-1">
+                  {role.skills.map(skill => (
+                    <span class="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-1 rounded-lg">{skill}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14 observe-animate" data-animate="animate-fade-in-up">
+        <SectionHeading title="How to Get Involved" subtitle="Volunteering with us is simple. Here's how to get started." centered />
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {steps.map((s) => (
+          <div class="text-center observe-animate" data-animate="animate-fade-in-up">
+            <div class="w-14 h-14 rounded-full bg-primary text-white text-xl font-black flex items-center justify-center mx-auto mb-4">{s.step}</div>
+            <h3 class="font-bold text-gray-900 mb-2" style="font-family: var(--font-heading);">{s.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer Form / CTA -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-primary">
+    <div class="max-w-2xl mx-auto text-center observe-animate" data-animate="animate-fade-in-up">
+      <h2 class="text-3xl font-black text-white mb-4" style="font-family: var(--font-heading);">Ready to Make a Difference?</h2>
+      <p class="text-white/80 mb-10">Contact us today to express your interest and we'll match you with the right volunteer opportunity.</p>
+      <a href="/contact" class="px-10 py-4 bg-white text-primary font-black rounded-lg hover:bg-gray-100 transition-colors text-base">
+        Express Your Interest
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = carousel.querySelectorAll('.carousel-dot');
+    let current = 0;
+
+    function goTo(index) {
+      slides[current].classList.remove('opacity-100');
+      slides[current].classList.add('opacity-0');
+      dots[current].classList.remove('bg-white');
+      dots[current].classList.add('bg-white/50');
+      current = index;
+      slides[current].classList.remove('opacity-0');
+      slides[current].classList.add('opacity-100');
+      dots[current].classList.remove('bg-white/50');
+      dots[current].classList.add('bg-white');
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => goTo(i));
+    });
+
+    setInterval(() => {
+      goTo((current + 1) % slides.length);
+    }, 3000);
+  });
+</script>

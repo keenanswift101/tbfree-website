@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const faqs = [
+  {
+    category: "Understanding TB",
+    questions: [
+      {
+        q: "What is tuberculosis (TB)?",
+        a: "Tuberculosis (TB) is an infectious disease caused by the bacterium Mycobacterium tuberculosis. It primarily affects the lungs (pulmonary TB) but can also affect other parts of the body such as the kidneys, spine, and brain. TB is one of the world's leading infectious disease killers.",
+      },
+      {
+        q: "How is TB spread?",
+        a: "TB spreads through the air when a person with active pulmonary TB coughs, sneezes, speaks, or sings. Tiny droplets containing the bacteria are released and can be inhaled by nearby people. TB is NOT spread through touching, sharing food, kissing, or using the same toilet.",
+      },
+      {
+        q: "What is the difference between TB infection and TB disease?",
+        a: "TB infection (latent TB) means the bacteria are in your body but your immune system is keeping them under control — you have no symptoms and cannot spread TB to others. TB disease (active TB) means the bacteria are multiplying and causing symptoms. Without treatment, active TB can be fatal and can spread to others.",
+      },
+      {
+        q: "Who is most at risk of getting TB?",
+        a: "Anyone can get TB, but the risk is higher for people with weakened immune systems (such as those living with HIV), people who live or work in overcrowded conditions, people who are malnourished, household contacts of TB patients, and healthcare workers. In Namibia, TB is more common in urban informal settlements.",
+      },
+    ],
+  },
+  {
+    category: "Symptoms & Diagnosis",
+    questions: [
+      {
+        q: "What are the symptoms of TB?",
+        a: "Common symptoms of active pulmonary TB include: a persistent cough lasting more than 2 weeks (sometimes with blood), chest pain, unexplained weight loss, fatigue and weakness, fever, night sweats, and loss of appetite. If you have these symptoms, please visit your nearest health facility.",
+      },
+      {
+        q: "How is TB diagnosed?",
+        a: "TB is diagnosed through a combination of: sputum tests (examining mucus coughed up from the lungs), GeneXpert molecular testing (a rapid test that also detects drug resistance), chest X-rays, tuberculin skin tests (TST), and blood tests (IGRA). In Namibia, TB testing is available free of charge at all public health facilities.",
+      },
+    ],
+  },
+  {
+    category: "Treatment",
+    questions: [
+      {
+        q: "Can TB be cured?",
+        a: "Yes! TB is curable with the right treatment. Standard TB treatment involves taking antibiotics (usually a combination of 4 drugs) for 6 months. It is critical to take all medications as prescribed and for the full duration — stopping early can lead to drug resistance.",
+      },
+      {
+        q: "What is drug-resistant TB (MDR-TB)?",
+        a: "Drug-resistant TB (MDR-TB) occurs when the TB bacteria become resistant to the most effective first-line TB drugs (isoniazid and rifampicin). It usually develops when TB treatment is incomplete or inconsistent. MDR-TB requires longer treatment (up to 18–24 months) with more complex and costly drugs.",
+      },
+      {
+        q: "Is TB treatment free in Namibia?",
+        a: "Yes. TB diagnosis and treatment are provided free of charge at all public health facilities in Namibia through the National TB Programme (NTP) under the Ministry of Health and Social Services.",
+      },
+      {
+        q: "Can I go to work or school while being treated for TB?",
+        a: "In most cases, after 2 weeks of effective treatment you are no longer infectious and can return to work or school. Your healthcare provider will advise you based on your specific situation. It's important to inform close contacts so they can be tested.",
+      },
+    ],
+  },
+  {
+    category: "TB & HIV",
+    questions: [
+      {
+        q: "What is the link between TB and HIV?",
+        a: "HIV weakens the immune system, making people living with HIV up to 20 times more likely to develop active TB. TB is the leading cause of death among people living with HIV worldwide. In Namibia, a significant proportion of TB patients are also HIV-positive, making integrated TB/HIV care essential.",
+      },
+      {
+        q: "Can people with HIV be treated for TB?",
+        a: "Yes. People living with HIV who develop TB can and should be treated for both conditions simultaneously. Healthcare providers will manage the treatment regimens carefully to avoid drug interactions and improve outcomes.",
+      },
+    ],
+  },
+  {
+    category: "TB & Children",
+    questions: [
+      {
+        q: "Can children get TB?",
+        a: "Yes. Children can get TB, usually from a close contact with an adult with active TB. TB in children can be harder to diagnose because symptoms may be less typical. The BCG vaccine, given at birth, provides some protection against severe forms of TB in young children.",
+      },
+    ],
+  },
+];
+---
+
+<Layout title="TB Questions & Answers" description="Frequently asked questions about tuberculosis — symptoms, diagnosis, treatment, and prevention answered by the TB Free Foundation of Namibia.">
+  <Hero
+    title="TB Questions & Answers"
+    subtitle="Clear, reliable answers to your questions about tuberculosis — from symptoms and diagnosis to treatment and prevention."
+    height="medium"
+    backgroundImage="/images/image9.png"
+  />
+
+  <!-- Intro -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center observe-animate" data-animate="animate-fade-in-up">
+      <SectionHeading
+        title="Get the Facts About TB"
+        subtitle="Knowledge is one of our most powerful tools in the fight against tuberculosis. Here are answers to the most common questions we receive."
+        centered
+      />
+    </div>
+  </section>
+
+  <!-- FAQ Sections -->
+  <section class="pb-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto space-y-16">
+      {faqs.map((section) => (
+        <div class="observe-animate" data-animate="animate-fade-in-up">
+          <h2 class="text-2xl font-black text-primary mb-8 pb-3 border-b-2 border-primary/20" style="font-family: var(--font-heading);">{section.category}</h2>
+          <div class="space-y-6">
+            {section.questions.map((item) => (
+              <details class="group bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
+                <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-gray-900 hover:text-primary transition-colors list-none">
+                  <span style="font-family: var(--font-heading);">{item.q}</span>
+                  <svg class="w-5 h-5 text-primary shrink-0 ml-4 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-50 pt-4">
+                  {item.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- More Questions CTA -->
+  <section class="py-20 bg-[#1a1a2e]">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-black text-white mb-4" style="font-family: var(--font-heading);">Have a Question Not Listed Here?</h2>
+      <p class="text-white/80 mb-8">Our team is here to help. Reach out to us and we'll get back to you with accurate, helpful information.</p>
+      <a href="/contact" class="px-8 py-3.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors text-sm">Ask Us a Question</a>
+    </div>
+  </section>
+</Layout>

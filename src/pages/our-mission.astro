@@ -9,7 +9,7 @@ import SectionHeading from '../components/SectionHeading.astro';
     title="Our Mission & Vision"
     subtitle="Advocating for equal access to healthcare and championing the fight against tuberculosis in Namibia."
     height="medium"
-    backgroundImage="/images/hero-mission.jpg"
+    backgroundImage="/images/image3.png"
   />
 
   <!-- Mission Statement -->
@@ -31,11 +31,11 @@ import SectionHeading from '../components/SectionHeading.astro';
           </div>
         </div>
         <div class="observe-animate" data-animate="animate-slide-right">
-          <div class="glass-card rounded-2xl p-8">
+          <div class="rounded-2xl overflow-hidden shadow-xl">
             <img
-              src="/images/mission-vision.jpg"
+              src="/images/image24.png"
               alt="TB Free Foundation vision - a world free of TB"
-              class="w-full h-80 object-cover rounded-xl"
+              class="w-full h-80 object-cover"
               loading="lazy"
             />
           </div>
@@ -47,7 +47,7 @@ import SectionHeading from '../components/SectionHeading.astro';
   <!-- Slogan Section -->
   <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
     <div class="max-w-4xl mx-auto text-center">
-      <div class="glass-primary rounded-2xl p-12">
+      <div class="bg-primary/5 border border-primary/10 rounded-2xl p-12">
         <p class="text-sm text-primary uppercase tracking-wider font-medium mb-4">Our Slogan</p>
         <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6" style="font-family: var(--font-heading);">
           "Breaking Barriers to END TB"
@@ -71,35 +71,35 @@ import SectionHeading from '../components/SectionHeading.astro';
           {
             title: 'Increase TB Awareness',
             description: 'Raising awareness about tuberculosis through targeted campaigns, community outreach, and educational programs to ensure every Namibian understands TB prevention, symptoms, and treatment.',
-            image: '/images/aim-awareness.jpg'
+            image: '/images/image6.png'
           },
           {
             title: 'Champion Advocacy Campaigns',
             description: 'Leading advocacy efforts to protect the rights of TB patients, fight discrimination, and ensure that the voices of patients and survivors are heard at all levels of society.',
-            image: '/images/aim-advocacy.jpg'
+            image: '/images/image7.png'
           },
           {
             title: 'Strategic Educational Programs',
             description: 'Developing and implementing educational programs that support innovation and research in TB prevention, treatment, and care across Namibia.',
-            image: '/images/aim-education.jpg'
+            image: '/images/image8.png'
           },
           {
             title: 'Identify and Treat TB Patients',
             description: 'Ensuring that all TB patients are identified, tested, and receive high quality care and treatment through robust healthcare systems and community support.',
-            image: '/images/aim-treatment.jpg'
+            image: '/images/image10.png'
           },
           {
             title: 'Break Down Stigma',
             description: 'Working tirelessly to ensure that TB patients receive high-quality care and treatment. Our advocacy efforts focus on breaking down stigma and discrimination at all levels of society.',
-            image: '/images/aim-stigma.jpg'
+            image: '/images/image11.png'
           },
           {
             title: 'Equity in Health',
             description: 'Advocating for equitable access to healthcare for all, especially for those who are marginalized and at greater risk of being lost to care during their TB journey.',
-            image: '/images/aim-equity.jpg'
+            image: '/images/image9.png'
           }
         ].map((aim, index) => (
-          <div class="observe-animate glass-card rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-animate="animate-fade-in-up" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="observe-animate bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-animate="animate-fade-in-up" style={`animation-delay: ${index * 0.1}s`}>
             <div class="h-48 bg-gradient-to-br from-primary/10 to-gray-100">
               <img src={aim.image} alt={aim.title} class="w-full h-full object-cover" loading="lazy" />
             </div>
@@ -117,13 +117,13 @@ import SectionHeading from '../components/SectionHeading.astro';
   <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
     <div class="max-w-4xl mx-auto">
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="glass-card rounded-xl p-8">
+        <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
           <h3 class="text-lg font-semibold text-gray-900 mb-4">Research and Innovation</h3>
           <p class="text-sm text-gray-600 leading-relaxed">
             We develop and support innovative strategies, research, and community-based approaches to raise awareness and improve TB care in communities across Namibia.
           </p>
         </div>
-        <div class="glass-card rounded-xl p-8">
+        <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
           <h3 class="text-lg font-semibold text-gray-900 mb-4">Advocacy and Care</h3>
           <p class="text-sm text-gray-600 leading-relaxed">
             We work tirelessly to ensure that TB patients receive high-quality care and treatment. Our advocacy efforts focus on breaking down stigma and discrimination at all levels of society.
@@ -137,7 +137,7 @@ import SectionHeading from '../components/SectionHeading.astro';
   <section class="py-24 px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
       <div class="relative rounded-2xl overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-gray-900"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-[#1a1a2e]"></div>
         <div class="relative z-10 p-12 sm:p-16 text-center">
           <h2 class="text-3xl font-bold text-white mb-6" style="font-family: var(--font-heading);">
             Together We Can END the TB Pandemic

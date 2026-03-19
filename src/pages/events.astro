@@ -4,6 +4,23 @@ import Hero from '../components/Hero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 
 // Events data - easily editable
+
+const currentEvents = [
+  {
+    title: '560forTBFree — 560 to Break Barriers',
+    date: 'March – April 2026',
+    location: 'Nationwide, Namibia',
+    description: '12 weeks. 560 km. Run, Walk, or Cycle. A TB survivor is running 560 km pledging N$10 per kilometre. Join the Corporate Challenge, be one of 100 individuals donating N$560, or volunteer 56 minutes with a TB patient.',
+    type: 'Live Fundraiser',
+    image: '/images/image1.png',
+    featured: true,
+    link: '/560fortbfree',
+    raised: 'N$5,600.00',
+    goal: 'N$80,000',
+    progress: 7,
+  },
+];
+
 const upcomingEvents = [
   {
     title: 'World TB Day 2026',
@@ -11,8 +28,23 @@ const upcomingEvents = [
     location: 'Nationwide, Namibia',
     description: 'Join TB Free Foundation and partners nationwide as we commemorate World TB Day. Annual awareness events, community screenings, and advocacy activities across Namibia.',
     type: 'Annual Event',
-    image: '/images/event-wtbd-2026.jpg',
-    featured: true,
+    image: '',
+  },
+  {
+    title: 'Upcoming Event',
+    date: 'TBA',
+    location: 'Namibia',
+    description: 'Details for this event will be announced soon. Stay tuned for updates.',
+    type: 'Event',
+    image: '',
+  },
+  {
+    title: 'Upcoming Event',
+    date: 'TBA',
+    location: 'Namibia',
+    description: 'Details for this event will be announced soon. Stay tuned for updates.',
+    type: 'Event',
+    image: '',
   },
 ];
 
@@ -23,7 +55,7 @@ const pastEvents = [
     location: 'Windhoek, Namibia',
     description: 'The Inaugural TB Free Namibia Foundation charity gala dinner. A night of Hope: Transforming lives, One breath at a time.',
     type: 'Fundraiser',
-    image: '/images/event-gala.jpg',
+    image: '',
   },
   {
     title: 'NGOs in the Spotlight',
@@ -31,23 +63,7 @@ const pastEvents = [
     location: 'The FNCC Gallery, Windhoek',
     description: 'TB Free and other NGOs gathered for a night of networking, getting to know what they do and how they do it, hosted by Umbrella Initiatives.',
     type: 'Networking',
-    image: '/images/event-ngo-spotlight.jpg',
-  },
-  {
-    title: 'NPO Level Up Training',
-    date: '23 September 2024',
-    location: 'House of Democracy, Windhoek',
-    description: 'Training organized by the Lithon Foundation in collaboration with the Ministry of Health and Social Services, equipping NPOs with tools and knowledge to achieve higher levels of maturity and efficiency.',
-    type: 'Training',
-    image: '/images/event-npo-training.jpg',
-  },
-  {
-    title: 'Umbrella Initiatives Coffee Shop',
-    date: '21 September 2024',
-    location: 'Windhoek, Namibia',
-    description: 'Umbrella Initiatives hosted its first Coffee Shop in partnership with TB Free and other NGOs. Funds generated were utilized for projects benefiting less-privileged communities.',
-    type: 'Fundraiser',
-    image: '/images/event-coffee-shop.jpg',
+    image: '',
   },
   {
     title: 'TB Free Charity Hike',
@@ -55,46 +71,39 @@ const pastEvents = [
     location: 'Windhoek, Namibia',
     description: 'The Yellow Stone Trails, Lets Go Hiking Namibia and The Lithon Foundation made it possible for TB Free to have a successful fundraiser through this hiking event.',
     type: 'Fundraiser',
-    image: '/images/event-hike.jpg',
-  },
-  {
-    title: 'TB Day with Ministry of Health',
-    date: 'March 2024',
-    location: 'Luderitz, Namibia',
-    description: 'TB Free joined the Ministry of Health and Social Services for a conference in Luderitz, re-establishing the commitment to working towards a future free of TB by the year 2030.',
-    type: 'Conference',
-    image: '/images/event-ministry-tb-day.jpg',
+    image: '',
   },
 ];
 
 const projects = [
   {
-    title: 'E-Bike Donation to Tsumkwe',
-    description: 'The TB Free Foundation donated two e-bikes with functional tracking devices to the Tsumkwe region in Namibia, helping community healthcare workers reach remote patients.',
-    image: '/images/project-ebikes.jpg',
-    category: 'Donation',
+    title: 'TB Patient Support Groups',
+    description: 'Connecting TB patients with peer support networks across Namibia — providing emotional support, shared experiences, and practical guidance to help people navigate their TB journey with dignity.',
+    image: '',
+    category: 'Patient Support',
   },
   {
     title: 'TB Champions Program',
     description: 'Training TB champions from communities across Namibia, equipping them with knowledge and tools to raise awareness, educate others, and advocate for TB patients.',
-    image: '/images/project-champions.jpg',
+    image: '/images/image19.png',
     category: 'Training',
   },
   {
     title: 'Community Advocacy',
     description: 'Empowering TB survivors to share their stories, using their voices to educate the community about the realities of living with TB and breaking down stigma.',
-    image: '/images/project-advocacy.jpg',
+    image: '/images/image20.png',
     category: 'Advocacy',
   },
   {
     title: 'Umbrella Initiatives Workshops',
     description: 'Partnering with Umbrella Initiatives for skills development workshops including networking, marketing, website development, and organizational capacity building.',
-    image: '/images/project-workshops.jpg',
+    image: '/images/image21.png',
     category: 'Workshops',
   },
 ];
 
 const typeColors: Record<string, string> = {
+  'Live Fundraiser': 'bg-red-100 text-red-800',
   'Annual Event': 'bg-primary/10 text-primary',
   'Fundraiser': 'bg-amber-100 text-amber-800',
   'Networking': 'bg-blue-100 text-blue-800',
@@ -108,22 +117,26 @@ const typeColors: Record<string, string> = {
     title="Events & Projects"
     subtitle="Building communities, raising awareness, and creating lasting impact in the fight against tuberculosis."
     height="medium"
-    backgroundImage="/images/hero-events.jpg"
+    backgroundImage="/images/image4.png"
   />
 
-  <!-- Upcoming Events -->
+  <!-- Current Live Events -->
   <section class="py-24 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-3 justify-center mb-2">
+        <span class="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
+        <span class="text-primary text-sm font-bold uppercase tracking-widest">Live Now</span>
+      </div>
       <SectionHeading
-        title="Upcoming Events"
-        subtitle="Join us at our next events and be part of the movement to end TB."
+        title="Current Events"
+        subtitle="Active campaigns and events happening right now."
         centered
       />
 
       <div class="mt-12 space-y-8">
-        {upcomingEvents.map((event) => (
+        {currentEvents.map((event) => (
           <div class="observe-animate" data-animate="animate-fade-in-up">
-            <div class="relative glass-card rounded-2xl overflow-hidden border-2 border-primary/20">
+            <div class="relative bg-white rounded-2xl overflow-hidden border-2 border-primary/30 shadow-lg">
               <div class="grid lg:grid-cols-5 gap-0">
                 <div class="lg:col-span-2 h-64 lg:h-auto bg-gradient-to-br from-primary/10 to-gray-100">
                   <img src={event.image} alt={event.title} class="w-full h-full object-cover" loading="lazy" />
@@ -134,8 +147,8 @@ const typeColors: Record<string, string> = {
                       {event.type}
                     </span>
                     {event.featured && (
-                      <span class="px-3 py-1 text-xs font-medium rounded-full bg-primary text-white">
-                        Featured
+                      <span class="px-3 py-1 text-xs font-medium rounded-full bg-primary text-white animate-pulse">
+                        Live
                       </span>
                     )}
                   </div>
@@ -157,15 +170,88 @@ const typeColors: Record<string, string> = {
                       {event.location}
                     </span>
                   </div>
-                  <p class="text-gray-600 leading-relaxed mb-6">{event.description}</p>
-                  <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-all duration-200 text-sm w-fit">
-                    Get Involved
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
+                  <p class="text-gray-600 leading-relaxed mb-5">{event.description}</p>
+                  <!-- Progress bar -->
+                  <div class="mb-6">
+                    <div class="flex justify-between text-xs text-gray-500 mb-1">
+                      <span>{event.raised} raised</span>
+                      <span>Goal: {event.goal}</span>
+                    </div>
+                    <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                      <div class="h-full bg-primary rounded-full" style={`width: ${event.progress}%`}></div>
+                    </div>
+                    <p class="text-gray-400 text-xs mt-1">{event.progress}% of goal reached</p>
+                  </div>
+                  <div class="flex flex-col sm:flex-row gap-3">
+                    <a href={event.link} class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-all duration-200 text-sm w-fit">
+                      Learn More & Participate
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                    <a href="/donations" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-gray-50 transition-all duration-200 text-sm border border-primary/30 w-fit">
+                      Donate Now
+                    </a>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeading
+        title="Upcoming Events"
+        subtitle="Mark your calendar — these events are coming soon."
+        centered
+      />
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {upcomingEvents.map((event, index) => (
+          <div
+            class="observe-animate bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            data-animate="animate-fade-in-up"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <div class="h-48 bg-gradient-to-br from-primary/10 to-gray-100 relative">
+              {event.image ? (
+                <img src={event.image} alt={event.title} class="w-full h-full object-cover" loading="lazy" />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center bg-gray-200">
+                  <div class="text-center text-gray-400">
+                    <svg class="w-10 h-10 mx-auto mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    <span class="text-xs font-medium">Photo coming soon</span>
+                  </div>
+                </div>
+              )}
+              <div class="absolute top-3 left-3">
+                <span class={`px-3 py-1 text-xs font-medium rounded-full ${typeColors[event.type] || 'bg-gray-100 text-gray-800'}`}>
+                  {event.type}
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
+                <span class="flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {event.date}
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  </svg>
+                  {event.location}
+                </span>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">{event.title}</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">{event.description}</p>
             </div>
           </div>
         ))}
@@ -185,12 +271,21 @@ const typeColors: Record<string, string> = {
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
         {pastEvents.map((event, index) => (
           <div
-            class="observe-animate glass-card rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            class="observe-animate bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             data-animate="animate-fade-in-up"
             style={`animation-delay: ${index * 0.1}s`}
           >
             <div class="h-48 bg-gradient-to-br from-primary/10 to-gray-100 relative">
-              <img src={event.image} alt={event.title} class="w-full h-full object-cover" loading="lazy" />
+              {event.image ? (
+                <img src={event.image} alt={event.title} class="w-full h-full object-cover" loading="lazy" />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center bg-gray-200">
+                  <div class="text-center text-gray-400">
+                    <svg class="w-10 h-10 mx-auto mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    <span class="text-xs font-medium">Photo coming soon</span>
+                  </div>
+                </div>
+              )}
               <div class="absolute top-3 left-3">
                 <span class={`px-3 py-1 text-xs font-medium rounded-full ${typeColors[event.type] || 'bg-gray-100 text-gray-800'}`}>
                   {event.type}
@@ -233,7 +328,7 @@ const typeColors: Record<string, string> = {
       <div class="grid md:grid-cols-2 gap-8 mt-12">
         {projects.map((project, index) => (
           <div
-            class="observe-animate glass-card rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
+            class="observe-animate bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300"
             data-animate="animate-fade-in-up"
             style={`animation-delay: ${index * 0.1}s`}
           >
@@ -256,25 +351,27 @@ const typeColors: Record<string, string> = {
   <!-- Advocacy Section -->
   <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
     <div class="max-w-4xl mx-auto">
-      <div class="glass-primary rounded-2xl p-10 sm:p-14 text-center">
+      <div class="bg-primary/5 border border-primary/10 rounded-2xl p-10 sm:p-14 text-center">
+        <p class="text-xs text-primary font-bold uppercase tracking-widest mb-3">Share Your Story</p>
         <h2 class="text-3xl font-bold text-gray-900 mb-6" style="font-family: var(--font-heading);">
-          Share Your Story
+          Be the Voice That Changes Minds
         </h2>
-        <p class="text-gray-600 leading-relaxed mb-4">
-          Tell us your story to help impact our journey of redefining how people perceive TB (tuberculosis). You can be the voice needed to change the way people see TB patients based on what you have experienced as someone that has or had TB.
+        <p class="text-gray-600 leading-relaxed mb-2">
+          Your story has the power to break stigma, shift perceptions, and give hope to someone who is fighting TB right now. Whether you are a survivor, a patient, or a caregiver — your experience deserves to be heard.
         </p>
-        <div class="text-left max-w-md mx-auto mt-8 mb-8 space-y-3">
+        <p class="text-gray-600 leading-relaxed mb-6">Share your journey with us:</p>
+        <div class="text-left max-w-md mx-auto mb-8 space-y-3">
           <p class="text-sm text-gray-700 flex items-start gap-3">
             <span class="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0"></span>
-            What was your experience?
+            What did your experience with TB look like?
           </p>
           <p class="text-sm text-gray-700 flex items-start gap-3">
             <span class="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0"></span>
-            How did people treat you after finding out that you had TB?
+            How did others treat you after your diagnosis?
           </p>
           <p class="text-sm text-gray-700 flex items-start gap-3">
             <span class="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0"></span>
-            Did you have access to medical care?
+            Did you have access to the care and support you needed?
           </p>
         </div>
         <a href="/contact" class="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-all duration-200 text-sm">

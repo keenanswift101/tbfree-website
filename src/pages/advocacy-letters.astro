@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const letters = [
+  {
+    title: "Open Letter to the Ministry of Health and Social Services on TB Funding",
+    recipient: "Ministry of Health, Namibia",
+    date: "March 2025",
+    summary: "Calling on the Ministry to increase the national TB budget allocation and prioritise community-based TB detection programmes across all regions.",
+  },
+  {
+    title: "Letter to the National TB Programme on Patient-Centered Care",
+    recipient: "National TB Programme",
+    date: "January 2025",
+    summary: "Advocating for systematic integration of psychosocial support services into the standard TB care pathway to improve treatment outcomes.",
+  },
+  {
+    title: "Submission to the African Union on Regional TB Commitments",
+    recipient: "African Union Health Commission",
+    date: "October 2024",
+    summary: "A formal submission urging African Union member states to honour and strengthen their commitments under the 2018 United Nations High-Level Meeting on TB.",
+  },
+  {
+    title: "Letter to Parliament: Accountability for END TB Goals",
+    recipient: "National Assembly of Namibia",
+    date: "August 2024",
+    summary: "Requesting parliamentary oversight on Namibia's progress towards the 2030 END TB targets, with specific emphasis on gender-responsive approaches.",
+  },
+  {
+    title: "Advocacy Brief: TB and HIV Co-Infection Services",
+    recipient: "Ministry of Health & UNAIDS",
+    date: "May 2024",
+    summary: "Recommending integrated TB/HIV services at all primary healthcare facilities, and calling for streamlined referral systems for co-infected patients.",
+  },
+  {
+    title: "Letter to PEPFAR on Sustaining TB Funding in Namibia",
+    recipient: "PEPFAR Country Team",
+    date: "February 2024",
+    summary: "Urging PEPFAR to sustain and expand TB-specific funding streams in Namibia, particularly for MDR-TB patient support and community health workers.",
+  },
+];
+---
+
+<Layout title="Advocacy Letters" description="Formal advocacy letters from TB Free Foundation of Namibia to government, health authorities, and international bodies.">
+  <Hero
+    title="Advocacy Letters"
+    subtitle="Formal letters and submissions to government, health authorities, and international bodies — holding decision-makers accountable to END TB."
+    height="medium"
+    backgroundImage="/images/image15.png"
+  />
+
+  <!-- Intro -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center observe-animate" data-animate="animate-fade-in-up">
+      <SectionHeading
+        title="Speaking Up for Change"
+        subtitle="We use the power of formal advocacy to ensure that the voices of TB-affected communities reach the highest levels of decision-making."
+        centered
+      />
+    </div>
+  </section>
+
+  <!-- Letters List -->
+  <section class="pb-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto space-y-6">
+      {letters.map((letter, i) => (
+        <div class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 observe-animate" data-animate="animate-slide-left">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+            <div>
+              <span class="inline-block text-xs font-semibold text-primary uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-full mb-3">{letter.date}</span>
+              <h3 class="text-xl font-bold text-gray-900 leading-snug" style="font-family: var(--font-heading);">{letter.title}</h3>
+            </div>
+          </div>
+          <p class="text-sm text-primary font-medium mb-3">To: {letter.recipient}</p>
+          <p class="text-gray-600 leading-relaxed">{letter.summary}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-[#1a1a2e]">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-black text-white mb-4" style="font-family: var(--font-heading);">Support Our Advocacy Efforts</h2>
+      <p class="text-white/80 mb-8">Your donation helps us continue to advocate for TB patients and push for systemic change at national and international levels.</p>
+      <a href="/donations" class="px-8 py-3.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors text-sm">Donate Now</a>
+    </div>
+  </section>
+</Layout>

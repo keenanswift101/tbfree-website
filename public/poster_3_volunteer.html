@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Challenge - 560 to Break Barriers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .poster {
+            width: 800px;
+            height: 1200px;
+            background: linear-gradient(to bottom, #d5f4e6 0%, #80ced7 50%, #5eaaa8 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 90px rgba(0,0,0,0.4);
+        }
+
+        /* Organic leaf shapes */
+        .leaf {
+            position: absolute;
+            opacity: 0.2;
+        }
+
+        .leaf-1 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(ellipse at center, #2d6a4f 0%, transparent 70%);
+            border-radius: 0 100% 0 100%;
+            top: 50px;
+            right: -50px;
+            transform: rotate(45deg);
+        }
+
+        .leaf-2 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(ellipse at center, #1b4332 0%, transparent 70%);
+            border-radius: 100% 0 100% 0;
+            bottom: 100px;
+            left: -80px;
+            transform: rotate(-30deg);
+        }
+
+        .leaf-3 {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(ellipse at center, #2d6a4f 0%, transparent 70%);
+            border-radius: 50% 0 50% 0;
+            top: 300px;
+            left: 30px;
+            transform: rotate(15deg);
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 60px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+            background: rgba(255,255,255,0.95);
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border: 3px solid #2d6a4f;
+        }
+
+        .campaign-name {
+            font-family: 'Abril Fatface', cursive;
+            font-size: 46px;
+            color: #1b4332;
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+
+        .tagline {
+            font-size: 17px;
+            color: #2d6a4f;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        .volunteer-header {
+            background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(45, 106, 79, 0.4);
+        }
+
+        .volunteer-header h1 {
+            font-family: 'Abril Fatface', cursive;
+            font-size: 48px;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .volunteer-header .subtitle {
+            font-size: 20px;
+            font-weight: 600;
+            color: #d5f4e6;
+        }
+
+        .time-box {
+            background: #fff;
+            border: 6px solid #2d6a4f;
+            border-radius: 20px;
+            padding: 45px 35px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+
+        .time-box .big-time {
+            font-family: 'Abril Fatface', cursive;
+            font-size: 96px;
+            color: #2d6a4f;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .time-box .time-unit {
+            font-size: 32px;
+            color: #1b4332;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .time-box .description {
+            font-size: 22px;
+            color: #2d6a4f;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .activity-box {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 6px solid #2d6a4f;
+        }
+
+        .activity-box h3 {
+            font-family: 'Abril Fatface', cursive;
+            font-size: 26px;
+            color: #1b4332;
+            margin-bottom: 18px;
+        }
+
+        .activity-box ul {
+            list-style: none;
+        }
+
+        .activity-box li {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #1b4332;
+            padding: 12px 0 12px 40px;
+            position: relative;
+            border-bottom: 1px solid rgba(45, 106, 79, 0.2);
+            font-weight: 500;
+        }
+
+        .activity-box li:last-child {
+            border-bottom: none;
+        }
+
+        .activity-box li::before {
+            content: '🌱';
+            position: absolute;
+            left: 0;
+            font-size: 24px;
+        }
+
+        .why-box {
+            background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(45, 106, 79, 0.4);
+        }
+
+        .why-box h3 {
+            font-family: 'Abril Fatface', cursive;
+            font-size: 24px;
+            color: #d5f4e6;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .why-box p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #d5f4e6;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .footer {
+            background: rgba(255,255,255,0.95);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 3px solid #2d6a4f;
+        }
+
+        .cta {
+            font-size: 24px;
+            color: #1b4332;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-family: 'Abril Fatface', cursive;
+        }
+
+        .contact {
+            font-size: 16px;
+            color: #2d6a4f;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact a {
+            color: #2d6a4f;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .logo-area {
+            font-size: 13px;
+            color: #52796f;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .heart-icon {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 60px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="leaf leaf-1"></div>
+        <div class="leaf leaf-2"></div>
+        <div class="leaf leaf-3"></div>
+        
+        <div class="content">
+            <div class="header">
+                <div class="campaign-name">560 to Break Barriers</div>
+                <div class="tagline">Time, Compassion, and Community</div>
+            </div>
+
+            <div class="main-content">
+                <div class="volunteer-header">
+                    <h1>Give 56 Minutes</h1>
+                    <div class="subtitle">Change a Life</div>
+                </div>
+
+                <div class="time-box">
+                    <div class="big-time">56</div>
+                    <div class="time-unit">MINUTES</div>
+                    <div class="description">Spend time with a TB patient<br>and help them heal</div>
+                </div>
+
+                <div class="activity-box">
+                    <h3>How You Can Help:</h3>
+                    <ul>
+                        <li>Start a container garden at their home</li>
+                        <li>Share a meal and conversation</li>
+                        <li>Help with household chores or errands</li>
+                        <li>Teach a skill or hobby</li>
+                        <li>Simply sit, listen, and be present</li>
+                        <li>Or any activity that brings comfort and hope</li>
+                    </ul>
+                </div>
+
+                <div class="why-box">
+                    <h3>Why This Matters</h3>
+                    <p>TB patients often face isolation, stigma, and loneliness during treatment. Your presence, your time, and your compassion can be as healing as medicine.</p>
+                    <p>Just 56 minutes of your time can remind someone they are not alone in their fight against TB.</p>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="cta">Volunteer Your Time</div>
+                <div class="contact">
+                    Contact us to get started:<br>
+                    <a href="#">[your email]</a> | <a href="#">[your phone]</a>
+                </div>
+                <div class="logo-area">TB Free Foundation Namibia | Section 21 Not-for-Profit</div>
+            </div>
+        </div>
+
+        <div class="heart-icon">💚</div>
+    </div>
+</body>
+</html>

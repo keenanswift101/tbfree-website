@@ -1,0 +1,867 @@
+﻿---
+// HeroSlideshow.astro — Full 9-slide editorial data-journalism slideshow
+---
+
+<style>
+  .ss-slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  .ss-slide.active {
+    display: block;
+    opacity: 1;
+  }
+  .ss-slide.fade-in { opacity: 1; }
+  .ss-slide.fade-out { opacity: 0; }
+
+  #ss-bg-img {
+    transition: opacity 1s ease;
+  }
+
+  .ss-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(12px);
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    color: #fff;
+    padding: 0;
+  }
+  .ss-arrow:hover {
+    background: rgba(159,13,13,0.55);
+    border-color: rgba(159,13,13,0.7);
+    transform: scale(1.08);
+  }
+  .ss-arrow:active { transform: scale(0.95); }
+  .ss-arrow:focus-visible {
+    outline: 2px solid #f4a261;
+    outline-offset: 2px;
+  }
+
+  [data-count] { font-variant-numeric: tabular-nums; }
+
+  @media (max-width: 640px) {
+    .ss-slide .grid-cols-3 { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Shared background — dynamic tint + accent system controlled by JS -->
+  <div class="absolute inset-0" style="background: linear-gradient(135deg, #0d0c1a 0%, #1a1a2e 60%, #0d0c1a 100%);">
+    <img src="/images/image11.png" alt="" id="ss-bg-img"
+         class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+         style="opacity:0.18;" loading="eager" />
+    <!-- Tint overlay: JS sets bg per-slide -->
+    <div id="ss-tint" class="absolute inset-0" style="background: rgba(20,16,40,0.72); transition: background 0.7s ease;"></div>
+    <!-- Accent blob 1 -->
+    <div id="ss-acc1" class="absolute top-1/4 left-1/4 w-72 h-72 rounded-full blur-3xl animate-pulse-slow pointer-events-none" style="background: rgba(159,13,13,0.24); transition: background 1s ease;"></div>
+    <!-- Accent blob 2 -->
+    <div id="ss-acc2" class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse-slow delay-200 pointer-events-none" style="background: rgba(159,13,13,0.12); transition: background 1s ease;"></div>
+    <!-- Vignette -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10"></div>
+  </div>
+
+  <!-- Slide container -->
+  <div id="ss-stage"
+       class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-24"
+       role="region" aria-live="polite">
+
+    <!-- ═══════════════ SLIDE 1 — Hero Title ═══════════════ -->
+    <div class="ss-slide active" data-duration="9000" data-bg="/images/image43.jpg">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-[#f4a261] font-semibold text-sm uppercase tracking-wider mb-4 animate-fade-in-up">TB Free Foundation of Namibia</p>
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in-up delay-100" style="font-family: var(--font-heading);">
+            Breaking Barriers<br>to <span class="text-[#f4a261]">End TB</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-white/70 max-w-xl leading-relaxed mb-8 animate-fade-in-up delay-200">
+            Every year on March 24th, the world unites to raise awareness about tuberculosis. Together, we can end the epidemic.
+          </p>
+          <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/10 mb-8 animate-fade-in-up delay-300">
+            <span class="text-white/50 text-sm font-medium uppercase tracking-wider">World TB Day 2026</span>
+            <span class="w-1 h-1 bg-white/30 rounded-full"></span>
+            <span class="text-white font-semibold text-sm" style="font-family: var(--font-heading);">Yes! We Can End TB.</span>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-400">
+            <a href="/who-we-are" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all duration-200">
+              Who We Are
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+            <a href="/our-advocacy" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-200">
+              Our Advocacy
+            </a>
+          </div>
+        </div>
+        <!-- Right: pulsing image42 -->
+        <div class="hidden lg:flex items-center justify-center animate-fade-in-up delay-200">
+          <img src="/images/image42.png" alt="YES! We Can End TB" class="animate-img-breathe drop-shadow-2xl" style="max-height: 380px; width: auto;" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════ SLIDE 2 — TB Facts ═══════════════ -->
+    <div class="ss-slide" data-duration="9000">
+      <div class="max-w-5xl mx-auto w-full">
+
+        <!-- Top label bar -->
+        <div class="flex items-center gap-4 mb-10 animate-fade-in-up">
+          <img src="/logo.png" alt="TB Free Foundation of Namibia" class="h-8 w-auto opacity-80 drop-shadow-md shrink-0" />
+          <div class="h-px flex-1 bg-white/15"></div>
+          <p class="text-white/40 text-xs uppercase tracking-[0.22em] font-medium shrink-0">World TB Report · Namibia 2025</p>
+        </div>
+
+        <!-- Hero editorial block -->
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_160px] gap-6 items-end mb-8 animate-fade-in-up delay-100">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="block w-8 h-0.5 bg-primary"></span>
+              <p class="text-primary text-xs font-bold uppercase tracking-[0.2em]">The Burden</p>
+            </div>
+            <div style="font-family: var(--font-heading);">
+              <p class="text-white/45 text-xl sm:text-2xl font-normal leading-tight mb-1">Every year in Namibia,</p>
+              <p class="text-white font-bold leading-none mb-2" data-count="13000" style="font-size: clamp(4.5rem, 11vw, 8.5rem); text-shadow: 0 4px 32px rgba(0,0,0,0.5);">13,000</p>
+              <p class="text-white/60 text-2xl sm:text-3xl font-medium">people are diagnosed with <span class="text-white">TB</span></p>
+            </div>
+            <div class="mt-7 max-w-lg">
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span class="text-white/40 uppercase tracking-wider">Namibia TB incidence vs global average</span>
+                <span class="text-primary font-bold text-sm">5× higher</span>
+              </div>
+              <div class="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full rounded-full" style="width: 83%; background: linear-gradient(to right, #9f0d0d, rgba(159,13,13,0.3));"></div>
+              </div>
+              <div class="flex justify-between text-white/25 text-xs mt-1.5">
+                <span>Global avg · 133/100k</span>
+                <span>Namibia · 422/100k</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: vertical perch stat -->
+          <div class="hidden lg:flex flex-col items-center gap-1 pb-1 animate-fade-in-up delay-200">
+            <div class="w-px bg-gradient-to-b from-transparent via-white/20 to-white/20" style="height: 80px;"></div>
+            <div class="text-center px-4 py-5 rounded-2xl border border-white/15" style="background: rgba(0,30,80,0.35); backdrop-filter: blur(16px);">
+              <p class="text-white font-bold leading-none mb-1" style="font-family: var(--font-heading); font-size: 2.4rem; text-shadow: 0 2px 12px rgba(0,0,0,0.5);">422</p>
+              <p class="text-[#6ba8d4] text-xs font-bold uppercase tracking-widest leading-tight">per<br/>100k</p>
+            </div>
+            <div class="w-px bg-gradient-to-b from-white/20 to-transparent" style="height: 40px;"></div>
+          </div>
+        </div>
+
+        <!-- Bottom 3-pod glass strip -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 rounded-2xl overflow-hidden border border-white/12 animate-fade-in-up delay-200" style="background: rgba(0,0,0,0.28); backdrop-filter: blur(20px);">
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#009A44] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">1,600+<br/>Children</p>
+            <p class="text-[#4ade80] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Per year</p>
+            <p class="text-white/35 text-xs leading-relaxed">Over 1,600 Namibian children are diagnosed with TB every year — most under age 5</p>
+          </div>
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#f4a261] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">32% TB–HIV<br/>Co-infection</p>
+            <p class="text-[#f4a261] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Dual burden</p>
+            <p class="text-white/35 text-xs leading-relaxed">1 in 3 TB patients in Namibia also has HIV — both must be treated together</p>
+          </div>
+          <div class="px-5 py-5 flex flex-col justify-between">
+            <div>
+              <div class="w-6 h-0.5 bg-primary mb-3"></div>
+              <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">TB is<br/>Curable</p>
+              <p class="text-primary text-xs font-bold uppercase tracking-wider mt-2 mb-1">85%+ success</p>
+              <p class="text-white/35 text-xs leading-relaxed">With free treatment at every Namibian clinic, 85%+ of TB patients fully recover</p>
+            </div>
+            <a href="/our-advocacy" class="mt-4 inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest hover:text-primary/70 transition-colors group">
+              Our Advocacy
+              <svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════ SLIDE 3 — Know the Signs ═══════════════ -->
+    <div class="ss-slide" data-duration="9000">
+      <div class="max-w-5xl mx-auto w-full">
+
+        <!-- Top label bar -->
+        <div class="flex items-center gap-4 mb-10 animate-fade-in-up">
+          <img src="/logo.png" alt="TB Free Foundation of Namibia" class="h-8 w-auto opacity-80 drop-shadow-md shrink-0" />
+          <div class="h-px flex-1 bg-white/15"></div>
+          <p class="text-white/40 text-xs uppercase tracking-[0.22em] font-medium shrink-0">TB Symptoms · Early Detection Saves Lives</p>
+        </div>
+
+        <!-- Hero editorial block -->
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_160px] gap-6 items-end mb-8 animate-fade-in-up delay-100">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="block w-8 h-0.5 bg-[#009A44]"></span>
+              <p class="text-[#4ade80] text-xs font-bold uppercase tracking-[0.2em]">Know the Signs</p>
+            </div>
+            <div style="font-family: var(--font-heading);">
+              <p class="text-white/45 text-xl sm:text-2xl font-normal leading-tight mb-1">If you have any of these,</p>
+              <p class="text-white font-bold leading-none mb-2" style="font-size: clamp(3.5rem, 9vw, 7rem); text-shadow: 0 4px 32px rgba(0,0,0,0.5);">Get<br/>Tested</p>
+              <p class="text-white/60 text-2xl sm:text-3xl font-medium">early diagnosis <span class="text-white">saves lives</span></p>
+            </div>
+            <div class="mt-7 max-w-lg">
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span class="text-white/40 uppercase tracking-wider">TB treatment success rate (Namibia)</span>
+                <span class="text-[#4ade80] font-bold text-sm">85%+</span>
+              </div>
+              <div class="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full rounded-full" style="width: 85%; background: linear-gradient(to right, #009A44, rgba(0,154,68,0.4));"></div>
+              </div>
+              <div class="flex justify-between text-white/25 text-xs mt-1.5">
+                <span>When caught late · low survival</span>
+                <span>When caught early · 85%+ cured</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: vertical perch stat -->
+          <div class="hidden lg:flex flex-col items-center gap-1 pb-1 animate-fade-in-up delay-200">
+            <div class="w-px bg-gradient-to-b from-transparent via-white/20 to-white/20" style="height: 80px;"></div>
+            <div class="text-center px-4 py-5 rounded-2xl border border-white/15" style="background: rgba(0,100,60,0.30); backdrop-filter: blur(16px);">
+              <p class="text-white font-bold leading-none mb-1" style="font-family: var(--font-heading); font-size: 2.4rem; text-shadow: 0 2px 12px rgba(0,0,0,0.5);">4</p>
+              <p class="text-[#4ade80] text-xs font-bold uppercase tracking-widest leading-tight">Key<br/>Signs</p>
+            </div>
+            <div class="w-px bg-gradient-to-b from-white/20 to-transparent" style="height: 40px;"></div>
+          </div>
+        </div>
+
+        <!-- Bottom: four symptom pods -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden border border-white/12 animate-fade-in-up delay-200" style="background: rgba(0,0,0,0.28); backdrop-filter: blur(20px);">
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-primary mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Persistent<br/>Cough</p>
+            <p class="text-primary text-xs font-bold uppercase tracking-wider mt-2 mb-1">Any duration</p>
+            <p class="text-white/35 text-xs leading-relaxed">Coughing for 2+ weeks — don't wait</p>
+          </div>
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#003580] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Fever &<br/>Night Sweats</p>
+            <p class="text-[#6ba3ff] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Recurring</p>
+            <p class="text-white/35 text-xs leading-relaxed">Persistent fever and drenching sweats</p>
+          </div>
+          <div class="px-5 py-5 border-r border-white/10 border-t lg:border-t-0 border-white/10">
+            <div class="w-6 h-0.5 bg-[#009A44] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Weight<br/>Loss</p>
+            <p class="text-[#4ade80] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Unexplained</p>
+            <p class="text-white/35 text-xs leading-relaxed">Rapid loss with no apparent cause</p>
+          </div>
+          <div class="px-5 py-5 flex flex-col justify-between border-t lg:border-t-0 border-white/10">
+            <div>
+              <div class="w-6 h-0.5 bg-[#f4a261] mb-3"></div>
+              <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Extreme<br/>Fatigue</p>
+              <p class="text-[#f4a261] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Persistent</p>
+              <p class="text-white/35 text-xs leading-relaxed">Tiredness that rest can't fix</p>
+            </div>
+            <a href="/tb-questions-answers" class="mt-4 inline-flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest hover:text-primary/70 transition-colors group">
+              Learn More
+              <svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════ SLIDE 4 — HIV & TB ═══════════════ -->
+    <div class="ss-slide" data-duration="9000">
+      <div class="max-w-5xl mx-auto w-full">
+
+        <!-- Top label bar -->
+        <div class="flex items-center gap-4 mb-10 animate-fade-in-up">
+          <img src="/logo.png" alt="TB Free Foundation of Namibia" class="h-8 w-auto opacity-80 drop-shadow-md shrink-0" />
+          <div class="h-px flex-1 bg-white/15"></div>
+          <p class="text-white/40 text-xs uppercase tracking-[0.22em] font-medium shrink-0">HIV–TB Co-infection · Namibia</p>
+        </div>
+
+        <!-- Hero editorial block -->
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_160px] gap-6 items-end mb-8 animate-fade-in-up delay-100">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="block w-8 h-0.5 bg-primary"></span>
+              <p class="text-primary text-xs font-bold uppercase tracking-[0.2em]">Critical Connection</p>
+            </div>
+            <div style="font-family: var(--font-heading);">
+              <p class="text-white/45 text-xl sm:text-2xl font-normal leading-tight mb-1">People with HIV are</p>
+              <p class="text-white font-bold leading-none mb-2" style="font-size: clamp(3.5rem, 9vw, 7rem); text-shadow: 0 4px 32px rgba(0,0,0,0.5);"><span data-count="20">20</span><span class="text-primary">×</span></p>
+              <p class="text-white/60 text-2xl sm:text-3xl font-medium">more likely to <span class="text-white">develop TB</span></p>
+            </div>
+            <div class="mt-7 max-w-lg">
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span class="text-white/40 uppercase tracking-wider">TB patients in Namibia also living with HIV</span>
+                <span class="text-[#6ba8d4] font-bold text-sm">32%</span>
+              </div>
+              <div class="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full rounded-full" style="width: 32%; background: linear-gradient(to right, #003580, rgba(0,53,128,0.4));"></div>
+              </div>
+              <div class="flex justify-between text-white/25 text-xs mt-1.5">
+                <span>1 in 3 TB patients is co-infected</span>
+                <span>Both must be treated together</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: vertical perch stat -->
+          <div class="hidden lg:flex flex-col items-center gap-1 pb-1 animate-fade-in-up delay-200">
+            <div class="w-px bg-gradient-to-b from-transparent via-white/20 to-white/20" style="height: 80px;"></div>
+            <div class="text-center px-4 py-5 rounded-2xl border border-white/15" style="background: rgba(0,30,80,0.40); backdrop-filter: blur(16px);">
+              <p class="text-white font-bold leading-none mb-1" style="font-family: var(--font-heading); font-size: 2rem; text-shadow: 0 2px 12px rgba(0,0,0,0.5);">#1</p>
+              <p class="text-[#6ba8d4] text-xs font-bold uppercase tracking-widest leading-tight">Killer of<br/>PLHIV</p>
+            </div>
+            <div class="w-px bg-gradient-to-b from-white/20 to-transparent" style="height: 40px;"></div>
+          </div>
+        </div>
+
+        <!-- Bottom 3-pod glass strip -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 rounded-2xl overflow-hidden border border-white/12 animate-fade-in-up delay-200" style="background: rgba(0,0,0,0.28); backdrop-filter: blur(20px);">
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-primary mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">20× Higher<br/>TB Risk</p>
+            <p class="text-primary text-xs font-bold uppercase tracking-wider mt-2 mb-1">Immune vulnerability</p>
+            <p class="text-white/35 text-xs leading-relaxed">HIV destroys the cells that contain <em>M. tuberculosis</em>, turning latent TB into active disease</p>
+          </div>
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#003580] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">32% of TB<br/>Patients</p>
+            <p class="text-[#6ba8d4] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Also have HIV</p>
+            <p class="text-white/35 text-xs leading-relaxed">1 in 3 TB patients in Namibia is co-infected — both infections must be treated simultaneously</p>
+          </div>
+          <div class="px-5 py-5 flex flex-col justify-between">
+            <div>
+              <div class="w-6 h-0.5 bg-[#009A44] mb-3"></div>
+              <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">85% Recover<br/>with Dual Tx</p>
+              <p class="text-[#4ade80] text-xs font-bold uppercase tracking-wider mt-2 mb-1">ARV + TB treatment</p>
+              <p class="text-white/35 text-xs leading-relaxed">Both ARV and TB treatment are <strong class="text-white/55">free</strong> at every Namibian MoHSS clinic</p>
+            </div>
+            <a href="/who-we-are" class="mt-4 inline-flex items-center gap-2 text-[#4ade80] text-xs font-bold uppercase tracking-widest hover:text-[#4ade80]/70 transition-colors group">
+              Our Work
+              <svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════ SLIDE 5 — Workplace ═══════════════ -->
+    <div class="ss-slide" data-duration="8000">
+      <div class="max-w-5xl mx-auto w-full">
+
+        <!-- Top label bar -->
+        <div class="flex items-center gap-4 mb-10 animate-fade-in-up">
+          <img src="/logo.png" alt="TB Free Foundation of Namibia" class="h-8 w-auto opacity-80 drop-shadow-md shrink-0" />
+          <div class="h-px flex-1 bg-white/15"></div>
+          <p class="text-white/40 text-xs uppercase tracking-[0.22em] font-medium shrink-0">Workplace Health · TB Prevention</p>
+        </div>
+
+        <!-- Hero editorial block -->
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-6 items-center mb-8 animate-fade-in-up delay-100">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="block w-8 h-0.5 bg-[#6ba8d4]"></span>
+              <p class="text-[#6ba8d4] text-xs font-bold uppercase tracking-[0.2em]">Workplace Health</p>
+            </div>
+            <div style="font-family: var(--font-heading);">
+              <p class="text-white/45 text-xl sm:text-2xl font-normal leading-tight mb-1">TB hits hardest in the workforce —</p>
+              <p class="text-white font-bold leading-none mb-2" style="font-size: clamp(3.5rem, 9vw, 7rem); text-shadow: 0 4px 32px rgba(0,0,0,0.5);"><span data-count="60">60</span><span class="text-[#6ba8d4]">%</span></p>
+              <p class="text-white/60 text-2xl sm:text-3xl font-medium">of cases are in <span class="text-white">working-age adults</span></p>
+            </div>
+            <div class="mt-7 max-w-lg">
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span class="text-white/40 uppercase tracking-wider">TB burden in working-age adults (15–64 yrs)</span>
+                <span class="text-[#6ba8d4] font-bold text-sm">60%</span>
+              </div>
+              <div class="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full rounded-full" style="width: 60%; background: linear-gradient(to right, #003580, rgba(0,53,128,0.4));"></div>
+              </div>
+              <div class="flex justify-between text-white/25 text-xs mt-1.5">
+                <span>Children & elderly · 40%</span>
+                <span>Workers · 60% of all cases</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom 3-pod glass strip -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 rounded-2xl overflow-hidden border border-white/12 animate-fade-in-up delay-200" style="background: rgba(0,0,0,0.28); backdrop-filter: blur(20px);">
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-primary mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">High-Risk<br/>Sectors</p>
+            <p class="text-primary text-xs font-bold uppercase tracking-wider mt-2 mb-1">Mining · Healthcare</p>
+            <p class="text-white/35 text-xs leading-relaxed">Crowded, poorly ventilated environments put workers at greatest risk of exposure</p>
+          </div>
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#6ba8d4] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Annual<br/>Screening</p>
+            <p class="text-[#6ba8d4] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Healthcare workers</p>
+            <p class="text-white/35 text-xs leading-relaxed">Healthcare workers exposed daily — yearly TB screening is essential and saves lives</p>
+          </div>
+          <div class="px-5 py-5 flex flex-col justify-between">
+            <div>
+              <div class="w-6 h-0.5 bg-[#009A44] mb-3"></div>
+              <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Know Your<br/>Rights</p>
+              <p class="text-[#4ade80] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Protected by law</p>
+              <p class="text-white/35 text-xs leading-relaxed">Workers <strong class="text-white/55">cannot be dismissed</strong> for TB under Namibian labour law</p>
+            </div>
+            <a href="/our-advocacy" class="mt-4 inline-flex items-center gap-2 text-[#4ade80] text-xs font-bold uppercase tracking-widest hover:text-[#4ade80]/70 transition-colors group">
+              Our Advocacy
+              <svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════ SLIDE 6 — Get Tested ═══════════════ -->
+    <div class="ss-slide" data-duration="8000">
+      <div class="max-w-5xl mx-auto w-full">
+
+        <!-- Top label bar -->
+        <div class="flex items-center gap-4 mb-10 animate-fade-in-up">
+          <img src="/logo.png" alt="TB Free Foundation of Namibia" class="h-8 w-auto opacity-80 drop-shadow-md shrink-0" />
+          <div class="h-px flex-1 bg-white/15"></div>
+          <p class="text-white/40 text-xs uppercase tracking-[0.22em] font-medium shrink-0">Free Testing & Treatment · MoHSS Clinics</p>
+        </div>
+
+        <!-- Hero editorial block -->
+        <div class="grid grid-cols-1 gap-6 items-center mb-8 animate-fade-in-up delay-100">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="block w-8 h-0.5 bg-[#4ade80]"></span>
+              <p class="text-[#4ade80] text-xs font-bold uppercase tracking-[0.2em]">Free at Every Clinic</p>
+            </div>
+            <div style="font-family: var(--font-heading);">
+              <p class="text-white/45 text-xl sm:text-2xl font-normal leading-tight mb-1">Results in as little as</p>
+              <p class="text-white font-bold leading-none mb-2" style="font-size: clamp(3.5rem, 9vw, 7rem); text-shadow: 0 4px 32px rgba(0,0,0,0.5);"><span data-count="3">3</span> <span class="text-[#f4a261]" style="font-size: clamp(2rem, 5vw, 4rem);">days</span></p>
+              <p class="text-white/60 text-2xl sm:text-3xl font-medium">TB confirmed or cleared — <span class="text-white">start treatment immediately</span></p>
+            </div>
+            <div class="mt-7 max-w-lg">
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span class="text-white/40 uppercase tracking-wider">Treatment cure rate when caught early</span>
+                <span class="text-[#4ade80] font-bold text-sm">87%</span>
+              </div>
+              <div class="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full rounded-full" style="width: 87%; background: linear-gradient(to right, #009A44, rgba(0,154,68,0.4));"></div>
+              </div>
+              <div class="flex justify-between text-white/25 text-xs mt-1.5">
+                <span>Caught late · under 50% survival</span>
+                <span>Caught early · 87% cure rate</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom 3-pod glass strip -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 rounded-2xl overflow-hidden border border-white/12 animate-fade-in-up delay-200" style="background: rgba(0,0,0,0.28); backdrop-filter: blur(20px);">
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#009A44] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Visit Any<br/>Clinic Free</p>
+            <p class="text-[#4ade80] text-xs font-bold uppercase tracking-wider mt-2 mb-1">No appointment needed</p>
+            <p class="text-white/35 text-xs leading-relaxed">Any MoHSS health facility in Namibia — walk in, no referral required</p>
+          </div>
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#6ba8d4] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">3-Day<br/>Results</p>
+            <p class="text-[#6ba8d4] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Xpert MTB/RIF</p>
+            <p class="text-white/35 text-xs leading-relaxed">World's most accurate rapid TB test — results in as little as 3 days</p>
+          </div>
+          <div class="px-5 py-5 flex flex-col justify-between">
+            <div>
+              <div class="w-6 h-0.5 bg-[#f4a261] mb-3"></div>
+              <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">6-Month<br/>Cure Free</p>
+              <p class="text-[#f4a261] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Full treatment course</p>
+              <p class="text-white/35 text-xs leading-relaxed">Complete 6-month course at no cost — stopping early causes drug resistance</p>
+            </div>
+            <a href="/tb-questions-answers" class="mt-4 inline-flex items-center gap-2 text-[#4ade80] text-xs font-bold uppercase tracking-widest hover:text-[#4ade80]/70 transition-colors group">
+              Get Tested
+              <svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════ SLIDE 7 — Recovery ═══════════════ -->
+    <div class="ss-slide" data-duration="8000">
+      <div class="max-w-5xl mx-auto w-full">
+
+        <!-- Top label bar -->
+        <div class="flex items-center gap-4 mb-10 animate-fade-in-up">
+          <img src="/logo.png" alt="TB Free Foundation of Namibia" class="h-8 w-auto opacity-80 drop-shadow-md shrink-0" />
+          <div class="h-px flex-1 bg-white/15"></div>
+          <p class="text-white/40 text-xs uppercase tracking-[0.22em] font-medium shrink-0">Recovery Journey · TB Treatment Timeline</p>
+        </div>
+
+        <!-- Hero editorial block -->
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_160px] gap-6 items-end mb-8 animate-fade-in-up delay-100">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="block w-8 h-0.5 bg-[#f4a261]"></span>
+              <p class="text-[#f4a261] text-xs font-bold uppercase tracking-[0.2em]">Recovery Journey</p>
+            </div>
+            <div style="font-family: var(--font-heading);">
+              <p class="text-white/45 text-xl sm:text-2xl font-normal leading-tight mb-1">With consistent treatment,</p>
+              <p class="text-white font-bold leading-none mb-2" style="font-size: clamp(3.5rem, 9vw, 7rem); text-shadow: 0 4px 32px rgba(0,0,0,0.5);"><span data-count="6">6</span> <span class="text-[#f4a261]" style="font-size: clamp(2rem, 5vw, 4rem);">months</span></p>
+              <p class="text-white/60 text-2xl sm:text-3xl font-medium">to become completely <span class="text-white">TB‑free for life</span></p>
+            </div>
+            <div class="mt-7 max-w-lg">
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span class="text-white/40 uppercase tracking-wider">Treatment timeline to full recovery</span>
+                <span class="text-[#f4a261] font-bold text-sm">Month 6</span>
+              </div>
+              <div class="h-1 bg-white/10 rounded-full overflow-hidden relative">
+                <div class="h-full rounded-full" style="width: 100%; background: linear-gradient(to right, #f4a261, rgba(244,162,97,0.4));"></div>
+                <div class="absolute top-1/2 -translate-y-1/2 rounded-full bg-white/60" style="left: 33%; width: 6px; height: 6px;"></div>
+              </div>
+              <div class="flex justify-between text-white/25 text-xs mt-1.5">
+                <span>Week 2 · no longer infectious</span>
+                <span>Month 6 · fully cured</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: vertical perch stat -->
+          <div class="hidden lg:flex flex-col items-center gap-1 pb-1 animate-fade-in-up delay-200">
+            <div class="w-px bg-gradient-to-b from-transparent via-white/20 to-white/20" style="height: 80px;"></div>
+            <div class="text-center px-4 py-5 rounded-2xl border border-white/15" style="background: rgba(80,50,0,0.35); backdrop-filter: blur(16px);">
+              <p class="text-white font-bold leading-none mb-1" style="font-family: var(--font-heading); font-size: 1.6rem; text-shadow: 0 2px 12px rgba(0,0,0,0.5);">Day 1</p>
+              <p class="text-[#f4a261] text-xs font-bold uppercase tracking-widest leading-tight">Start<br/>Today</p>
+            </div>
+            <div class="w-px bg-gradient-to-b from-white/20 to-transparent" style="height: 40px;"></div>
+          </div>
+        </div>
+
+        <!-- Bottom 3-pod glass strip -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 rounded-2xl overflow-hidden border border-white/12 animate-fade-in-up delay-200" style="background: rgba(0,0,0,0.28); backdrop-filter: blur(20px);">
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#009A44] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Week 2<br/>No Longer Infectious</p>
+            <p class="text-[#4ade80] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Safe for family</p>
+            <p class="text-white/35 text-xs leading-relaxed">After just 2 weeks of treatment you are no longer contagious to those around you</p>
+          </div>
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#f4a261] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Month 2<br/>Feeling Stronger</p>
+            <p class="text-[#f4a261] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Major milestone</p>
+            <p class="text-white/35 text-xs leading-relaxed">Most patients notice significant energy improvement — continue to the end</p>
+          </div>
+          <div class="px-5 py-5 flex flex-col justify-between">
+            <div>
+              <div class="w-6 h-0.5 bg-[#f4a261] mb-3"></div>
+              <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Month 6<br/>TB Free!</p>
+              <p class="text-[#f4a261] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Complete the course</p>
+              <p class="text-white/35 text-xs leading-relaxed">Stopping early causes drug resistance — complete all 6 months for a permanent cure</p>
+            </div>
+            <a href="/tb-champion-stories" class="mt-4 inline-flex items-center gap-2 text-[#f4a261] text-xs font-bold uppercase tracking-widest hover:text-[#f4a261]/70 transition-colors group">
+              Our Stories
+              <svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════ SLIDE 8 — Children ═══════════════ -->
+    <div class="ss-slide" data-duration="8000">
+      <div class="max-w-5xl mx-auto w-full">
+
+        <!-- Top label bar -->
+        <div class="flex items-center gap-4 mb-10 animate-fade-in-up">
+          <img src="/logo.png" alt="TB Free Foundation of Namibia" class="h-8 w-auto opacity-80 drop-shadow-md shrink-0" />
+          <div class="h-px flex-1 bg-white/15"></div>
+          <p class="text-white/40 text-xs uppercase tracking-[0.22em] font-medium shrink-0">Paediatric TB · Protecting Namibia's Children</p>
+        </div>
+
+        <!-- Hero editorial block -->
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_160px] gap-6 items-end mb-8 animate-fade-in-up delay-100">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="block w-8 h-0.5 bg-[#f4a261]"></span>
+              <p class="text-[#f4a261] text-xs font-bold uppercase tracking-[0.2em]">Focus: Children</p>
+            </div>
+            <div style="font-family: var(--font-heading);">
+              <p class="text-white/45 text-xl sm:text-2xl font-normal leading-tight mb-1">Every year in Namibia,</p>
+              <p class="text-white font-bold leading-none mb-2" style="font-size: clamp(3.5rem, 9vw, 7rem); text-shadow: 0 4px 32px rgba(0,0,0,0.5);"><span data-count="1600">1,600</span><span class="text-[#f4a261]">+</span></p>
+              <p class="text-white/60 text-2xl sm:text-3xl font-medium">children diagnosed with TB — <span class="text-white">most under age 5</span></p>
+            </div>
+            <div class="mt-7 max-w-lg">
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span class="text-white/40 uppercase tracking-wider">Children under 5 as % of paediatric TB cases</span>
+                <span class="text-[#f4a261] font-bold text-sm">56%</span>
+              </div>
+              <div class="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full rounded-full" style="width: 56%; background: linear-gradient(to right, #f4a261, rgba(244,162,97,0.4));"></div>
+              </div>
+              <div class="flex justify-between text-white/25 text-xs mt-1.5">
+                <span>Age 5–14 · 44%</span>
+                <span>Under 5 · most vulnerable · 56%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: vertical perch stat -->
+          <div class="hidden lg:flex flex-col items-center gap-1 pb-1 animate-fade-in-up delay-200">
+            <div class="w-px bg-gradient-to-b from-transparent via-white/20 to-white/20" style="height: 80px;"></div>
+            <div class="text-center px-4 py-5 rounded-2xl border border-white/15" style="background: rgba(80,40,0,0.35); backdrop-filter: blur(16px);">
+              <p class="text-white font-bold leading-none mb-1" style="font-family: var(--font-heading); font-size: 2rem; text-shadow: 0 2px 12px rgba(0,0,0,0.5);">FREE</p>
+              <p class="text-[#f4a261] text-xs font-bold uppercase tracking-widest leading-tight">Paediatric<br/>Treatment</p>
+            </div>
+            <div class="w-px bg-gradient-to-b from-white/20 to-transparent" style="height: 40px;"></div>
+          </div>
+        </div>
+
+        <!-- Bottom 3-pod glass strip -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 rounded-2xl overflow-hidden border border-white/12 animate-fade-in-up delay-200" style="background: rgba(0,0,0,0.28); backdrop-filter: blur(20px);">
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#f4a261] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">1,600+<br/>Per Year</p>
+            <p class="text-[#f4a261] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Diagnosed annually</p>
+            <p class="text-white/35 text-xs leading-relaxed">Every year in Namibia, over 1,600 children are diagnosed with TB — a preventable disease</p>
+          </div>
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-primary mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Any Cough<br/>Is a Warning</p>
+            <p class="text-primary text-xs font-bold uppercase tracking-wider mt-2 mb-1">Don't wait 2 weeks</p>
+            <p class="text-white/35 text-xs leading-relaxed">In children, even a short cough can indicate TB — act on any symptom immediately</p>
+          </div>
+          <div class="px-5 py-5 flex flex-col justify-between">
+            <div>
+              <div class="w-6 h-0.5 bg-[#009A44] mb-3"></div>
+              <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">Free &amp; Fast<br/>Diagnosis</p>
+              <p class="text-[#4ade80] text-xs font-bold uppercase tracking-wider mt-2 mb-1">All children</p>
+              <p class="text-white/35 text-xs leading-relaxed">Testing and treatment are completely free for all children at every MoHSS clinic</p>
+            </div>
+            <a href="/tb-questions-answers" class="mt-4 inline-flex items-center gap-2 text-[#4ade80] text-xs font-bold uppercase tracking-widest hover:text-[#4ade80]/70 transition-colors group">
+              Learn More
+              <svg class="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════ SLIDE 9 — Take Action ═══════════════ -->
+    <div class="ss-slide" data-duration="9000">
+      <div class="max-w-5xl mx-auto w-full">
+
+        <!-- Top label bar -->
+        <div class="flex items-center gap-4 mb-10 animate-fade-in-up">
+          <img src="/logo.png" alt="TB Free Foundation of Namibia" class="h-8 w-auto opacity-80 drop-shadow-md shrink-0" />
+          <div class="h-px flex-1 bg-white/15"></div>
+          <p class="text-white/40 text-xs uppercase tracking-[0.22em] font-medium shrink-0">Our Progress · World TB Day 24 March 2026</p>
+        </div>
+
+        <!-- Hero editorial block -->
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_160px] gap-6 items-end mb-8 animate-fade-in-up delay-100">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="block w-8 h-0.5 bg-[#009A44]"></span>
+              <p class="text-[#4ade80] text-xs font-bold uppercase tracking-[0.2em]">Our Progress</p>
+            </div>
+            <div style="font-family: var(--font-heading);">
+              <p class="text-white/45 text-xl sm:text-2xl font-normal leading-tight mb-1">Since 2015, Namibia has achieved a</p>
+              <p class="text-white font-bold leading-none mb-2" style="font-size: clamp(3.5rem, 9vw, 7rem); text-shadow: 0 4px 32px rgba(0,0,0,0.5);"><span data-count="25">25</span><span class="text-[#4ade80]">%</span></p>
+              <p class="text-white/60 text-2xl sm:text-3xl font-medium">reduction in TB cases — <span class="text-white">but the fight is not over</span></p>
+            </div>
+            <div class="mt-7 max-w-lg">
+              <div class="flex items-center justify-between text-xs mb-2">
+                <span class="text-white/40 uppercase tracking-wider">Namibia's TB elimination target — 2030 goal</span>
+                <span class="text-[#4ade80] font-bold text-sm">25% / 90%</span>
+              </div>
+              <div class="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full rounded-full" style="width: 28%; background: linear-gradient(to right, #009A44, rgba(0,154,68,0.4));"></div>
+              </div>
+              <div class="flex justify-between text-white/25 text-xs mt-1.5">
+                <span>2015 baseline</span>
+                <span>90% reduction target · 2030</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: vertical perch stat -->
+          <div class="hidden lg:flex flex-col items-center gap-1 pb-1 animate-fade-in-up delay-200">
+            <div class="w-px bg-gradient-to-b from-transparent via-white/20 to-white/20" style="height: 80px;"></div>
+            <div class="text-center px-4 py-5 rounded-2xl border border-white/15" style="background: rgba(0,60,30,0.35); backdrop-filter: blur(16px);">
+              <p class="text-white font-bold leading-none mb-1" style="font-family: var(--font-heading); font-size: 2rem; text-shadow: 0 2px 12px rgba(0,0,0,0.5);">2030</p>
+              <p class="text-[#4ade80] text-xs font-bold uppercase tracking-widest leading-tight">END TB<br/>Target</p>
+            </div>
+            <div class="w-px bg-gradient-to-b from-white/20 to-transparent" style="height: 40px;"></div>
+          </div>
+        </div>
+
+        <!-- Bottom: 2 stat pods + CTA pod -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 rounded-2xl overflow-hidden border border-white/12 animate-fade-in-up delay-200" style="background: rgba(0,0,0,0.28); backdrop-filter: blur(20px);">
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#6ba8d4] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">87%<br/>Treatment Success</p>
+            <p class="text-[#6ba8d4] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Nationally</p>
+            <p class="text-white/35 text-xs leading-relaxed">87% of TB patients in Namibia successfully complete treatment — free drugs at every MoHSS facility</p>
+          </div>
+          <div class="px-5 py-5 border-r border-white/10">
+            <div class="w-6 h-0.5 bg-[#f4a261] mb-3"></div>
+            <p class="text-white font-bold text-xl leading-none mb-1" style="font-family: var(--font-heading);">50,000+<br/>People Tested</p>
+            <p class="text-[#f4a261] text-xs font-bold uppercase tracking-wider mt-2 mb-1">Through campaigns</p>
+            <p class="text-white/35 text-xs leading-relaxed">Community outreach across all 14 Namibian regions — finding TB before it spreads</p>
+          </div>
+          <!-- image42 -->
+          <div class="flex items-center justify-center p-3 min-h-[160px]">
+            <img src="/images/image42.png" alt="YES! We Can End TB" class="w-full object-contain max-h-44 drop-shadow-2xl animate-img-breathe" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Left arrow -->
+  <button id="ss-prev" class="ss-arrow absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-20" aria-label="Previous slide">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+
+  <!-- Right arrow -->
+  <button id="ss-next" class="ss-arrow absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-20" aria-label="Next slide">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+</section>
+
+<script>
+(function () {
+  const stage = document.getElementById('ss-stage');
+  const bgImg = document.getElementById('ss-bg-img') as HTMLImageElement;
+  const tintEl = document.getElementById('ss-tint');
+  const acc1El = document.getElementById('ss-acc1');
+  const acc2El = document.getElementById('ss-acc2');
+  const slides = Array.from(stage!.querySelectorAll<HTMLElement>('.ss-slide'));
+  const prevBtn = document.getElementById('ss-prev');
+  const nextBtn = document.getElementById('ss-next');
+  const total = slides.length;
+  let current = 0;
+  let timer: ReturnType<typeof setTimeout> | null = null;
+
+  const themes = [
+    // slide 1: image43, dark overlay
+    { img: '/images/image43.jpg', op: '1', tint: 'rgba(0,0,0,0.52)', a1: 'rgba(159,13,13,0.10)', a2: 'rgba(0,0,0,0)', pos: 'center center' },
+    // slide 2: TB Facts — deep navy
+    { img: null, op: '0', tint: 'rgba(10,10,26,0.92)', a1: 'rgba(0,53,128,0.22)', a2: 'rgba(0,53,128,0.10)', pos: 'center center' },
+    // slide 3: Know the Signs — dark green
+    { img: null, op: '0', tint: 'rgba(18,32,18,0.96)', a1: 'rgba(0,154,68,0.18)', a2: 'rgba(0,154,68,0.08)', pos: 'center center' },
+    // slide 4: HIV & TB — very dark
+    { img: null, op: '0', tint: 'rgba(14,6,6,0.96)', a1: 'rgba(159,13,13,0.20)', a2: 'rgba(0,53,128,0.10)', pos: 'center center' },
+    // slide 5: Workplace — solid dark navy
+    { img: null, op: '0', tint: 'rgba(6,10,26,0.96)', a1: 'rgba(0,53,128,0.28)', a2: 'rgba(0,30,80,0.16)', pos: 'center center' },
+    // slide 6: Get Tested — solid dark green
+    { img: null, op: '0', tint: 'rgba(6,22,10,0.96)', a1: 'rgba(0,154,68,0.22)', a2: 'rgba(0,100,50,0.14)', pos: 'center center' },
+    // slide 7: Recovery — solid warm amber/yellow
+    { img: null, op: '0', tint: 'rgba(32,20,2,0.96)', a1: 'rgba(244,162,97,0.34)', a2: 'rgba(200,120,20,0.16)', pos: 'center center' },
+    // slide 8: Children — solid dark warm amber
+    { img: null, op: '0', tint: 'rgba(28,14,4,0.96)', a1: 'rgba(244,162,97,0.30)', a2: 'rgba(200,100,20,0.14)', pos: 'center center' },
+    // slide 9: Take Action — dark navy/purple
+    { img: null, op: '0', tint: 'rgba(16,10,28,0.96)', a1: 'rgba(159,13,13,0.20)', a2: 'rgba(0,53,128,0.14)', pos: 'center center' },
+  ];
+
+  function applyTheme(idx: number) {
+    const t = themes[idx];
+    if (t.img) {
+      bgImg!.src = t.img;
+      bgImg!.style.opacity = t.op;
+      bgImg!.style.objectFit = 'cover';
+      bgImg!.style.objectPosition = t.pos || 'center center';
+      bgImg!.style.transform = 'none';
+    } else {
+      bgImg!.style.opacity = '0';
+    }
+    tintEl!.style.background = t.tint;
+    acc1El!.style.background = t.a1;
+    acc2El!.style.background = t.a2;
+  }
+
+  function animateCounters(slide: HTMLElement) {
+    slide.querySelectorAll<HTMLElement>('[data-count]').forEach(el => {
+      const target = parseInt(el.dataset.count!, 10);
+      const suffix = el.dataset.suffix || '';
+      const prefix = '';
+      const duration = 3400;
+      const startTime = performance.now();
+      function tick(now: number) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.round(target * eased);
+        el.textContent = prefix + value.toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      el.textContent = '0';
+      requestAnimationFrame(tick);
+    });
+  }
+
+  function goTo(idx: number) {
+    const prev = current;
+    current = ((idx % total) + total) % total;
+    if (prev === current) return;
+
+    const prevSlide = slides[prev];
+    const nextSlide = slides[current];
+
+    prevSlide.classList.add('fade-out');
+    prevSlide.classList.remove('fade-in');
+    setTimeout(() => {
+      prevSlide.classList.remove('active', 'fade-out');
+      applyTheme(current);
+      nextSlide.classList.add('active');
+      nextSlide.offsetHeight; // reflow
+      nextSlide.classList.add('fade-in');
+      animateCounters(nextSlide);
+    }, 400);
+
+    scheduleNext();
+  }
+
+  function scheduleNext() {
+    if (timer) clearTimeout(timer);
+    const dur = parseInt(slides[current].dataset.duration || '7500', 10);
+    timer = setTimeout(() => goTo(current + 1), dur);
+  }
+
+  // Arrow clicks
+  prevBtn!.addEventListener('click', () => { if (timer) clearTimeout(timer); goTo(current - 1); });
+  nextBtn!.addEventListener('click', () => { if (timer) clearTimeout(timer); goTo(current + 1); });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') { if (timer) clearTimeout(timer); goTo(current - 1); }
+    if (e.key === 'ArrowRight') { if (timer) clearTimeout(timer); goTo(current + 1); }
+  });
+
+  // Touch swipe
+  let touchStartX = 0;
+  stage!.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  stage!.addEventListener('touchend', e => {
+    const delta = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(delta) > 50) { if (timer) clearTimeout(timer); goTo(current + (delta < 0 ? 1 : -1)); }
+  }, { passive: true });
+
+  // Init
+  slides[0].classList.add('active', 'fade-in');
+  applyTheme(0);
+  animateCounters(slides[0]);
+  scheduleNext();
+})();
+</script>

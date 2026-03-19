@@ -4,7 +4,9 @@
   --color-primary: #9f0d0d;
   --color-primary-dark: #7a0a0a;
   --color-primary-light: #c41414;
-  --color-secondary: #000000;
+  --color-secondary: #1a1a2e;
+  --color-accent: #f4a261;
+  --color-accent-dark: #e08b3a;
   --color-white: #ffffff;
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
@@ -119,6 +121,16 @@ body {
 @keyframes pulse-slow {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 0.7; }
+}
+
+@keyframes img-breathe {
+  0%, 100% { transform: scale(1.0); }
+  50% { transform: scale(1.06); }
+}
+
+.animate-img-breathe {
+  animation: img-breathe 4s ease-in-out infinite;
+  transform-origin: center center;
 }
 
 .animate-fade-in-up {

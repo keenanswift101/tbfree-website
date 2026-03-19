@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const resources = [
+  {
+    category: "Patient Support",
+    items: [
+      {
+        title: "TB Patient Rights Guide",
+        description: "A plain-language guide explaining the rights of TB patients in Namibia, including rights to free treatment, confidentiality, and non-discrimination.",
+        type: "PDF Guide",
+        icon: "📋",
+      },
+      {
+        title: "TB Treatment Adherence Booklet",
+        description: "A practical booklet helping TB patients understand why completing the full course of treatment is vital, with tips for managing side effects and staying on track.",
+        type: "PDF Booklet",
+        icon: "📖",
+      },
+      {
+        title: "TB & HIV: What You Need to Know",
+        description: "Information sheet on how TB and HIV interact, understanding co-infection, and how to access integrated care services in Namibia.",
+        type: "Information Sheet",
+        icon: "📄",
+      },
+    ],
+  },
+  {
+    category: "Community Educators",
+    items: [
+      {
+        title: "TB Community Education Toolkit",
+        description: "A comprehensive toolkit for community health workers and educators, including lesson plans, flipcharts, and facilitation guides for TB awareness sessions.",
+        type: "Toolkit",
+        icon: "🧰",
+      },
+      {
+        title: "TB Stigma Reduction Workshop Guide",
+        description: "Step-by-step workshop guide designed for community facilitators to lead stigma-reduction sessions in schools, workplaces, and community settings.",
+        type: "Workshop Guide",
+        icon: "🎯",
+      },
+      {
+        title: "TB Awareness Poster Pack",
+        description: "A collection of printable A3 awareness posters in multiple languages (English, Oshiwambo, Afrikaans) for display in clinics, schools, and community centres.",
+        type: "Poster Pack",
+        icon: "🖼️",
+      },
+    ],
+  },
+  {
+    category: "Healthcare Workers",
+    items: [
+      {
+        title: "TB Screening Checklist for Clinicians",
+        description: "A quick-reference checklist for healthcare workers conducting TB screening at primary healthcare facilities, aligned with Namibia's National TB Guidelines.",
+        type: "Reference Tool",
+        icon: "✅",
+      },
+      {
+        title: "MDR-TB Referral Pathway Guide",
+        description: "Clear guidance for healthcare workers on identifying, referring, and supporting patients with suspected or confirmed drug-resistant TB.",
+        type: "Clinical Guide",
+        icon: "🏥",
+      },
+      {
+        title: "Paediatric TB Detection Guide",
+        description: "A clinical resource to assist healthcare workers in identifying TB in children, covering diagnostic approaches, treatment initiation, and family screening.",
+        type: "Clinical Guide",
+        icon: "👶",
+      },
+    ],
+  },
+  {
+    category: "Policy & Advocacy",
+    items: [
+      {
+        title: "Namibia TB Policy Brief 2024",
+        description: "An evidence-based policy brief outlining priority actions for Namibia's National TB Programme to accelerate progress towards the 2030 END TB targets.",
+        type: "Policy Brief",
+        icon: "📊",
+      },
+      {
+        title: "TB Funding Advocacy Toolkit",
+        description: "Resources and templates to help civil society organisations advocate for increased domestic TB funding at community, regional, and national levels.",
+        type: "Advocacy Toolkit",
+        icon: "💡",
+      },
+    ],
+  },
+];
+---
+
+<Layout title="Resources" description="Downloadable TB resources, toolkits, guides, and information sheets from TB Free Foundation of Namibia for patients, communities, and healthcare workers.">
+  <Hero
+    title="Resources"
+    subtitle="Free downloadable resources for TB patients, community educators, healthcare workers, and advocates."
+    height="medium"
+    backgroundImage="/images/image12.png"
+  />
+
+  <!-- Intro -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center observe-animate" data-animate="animate-fade-in-up">
+      <SectionHeading
+        title="Tools for the Fight Against TB"
+        subtitle="We believe accessible information saves lives. All resources are free to download and share."
+        centered
+      />
+    </div>
+  </section>
+
+  <!-- Resources by Category -->
+  <section class="pb-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto space-y-16">
+      {resources.map((section) => (
+        <div class="observe-animate" data-animate="animate-fade-in-up">
+          <h2 class="text-2xl font-black text-gray-900 mb-8 pb-3 border-b-2 border-primary/20" style="font-family: var(--font-heading);">{section.category}</h2>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {section.items.map((item) => (
+              <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col gap-4">
+                <div>
+                  <span class="text-xs font-semibold text-primary uppercase tracking-wider">{item.type}</span>
+                  <h3 class="text-lg font-bold text-gray-900 mt-1 mb-2 leading-snug" style="font-family: var(--font-heading);">{item.title}</h3>
+                  <p class="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+                </div>
+                <a href="/contact" class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-200">
+                  Request this resource
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Request CTA -->
+  <section class="py-20 bg-primary">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-black text-white mb-4" style="font-family: var(--font-heading);">Need a Custom Resource?</h2>
+      <p class="text-white/80 mb-8">We can develop tailored educational materials for your organisation or community. Contact us to discuss your needs.</p>
+      <a href="/contact" class="px-8 py-3.5 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors text-sm">Contact Us</a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const publications = [
+  {
+    title: "TB Treatment Outcomes in Namibia: A Five-Year Review (2019–2024)",
+    authors: "Husselmann K., et al.",
+    journal: "African Journal of Respiratory Medicine",
+    year: "2024",
+    category: "Epidemiology",
+    abstract: "This study reviews TB treatment success rates across Namibia's 14 regions, identifying key disparities in outcomes by geography, gender, and HIV co-infection status.",
+  },
+  {
+    title: "Community-Based TB Detection: Lessons from Northern Namibia",
+    authors: "TB Free Foundation of Namibia",
+    journal: "TB Free Foundation Report",
+    year: "2024",
+    category: "Community Health",
+    abstract: "An evaluation of community-led TB screening initiatives in the Oshana and Ohangwena regions, exploring feasibility, yield, and cost-effectiveness.",
+  },
+  {
+    title: "Stigma and TB Treatment Adherence: A Qualitative Study",
+    authors: "Husselmann K., Nakale T.",
+    journal: "International Journal of TB and Lung Disease",
+    year: "2023",
+    category: "Social Science",
+    abstract: "This qualitative research explores the relationship between TB-related stigma and treatment non-adherence among patients in urban and peri-urban Namibia.",
+  },
+  {
+    title: "Drug-Resistant TB in Sub-Saharan Africa: Policy Implications",
+    authors: "TB Free Foundation Consortium",
+    journal: "Lancet Regional Health – Africa",
+    year: "2023",
+    category: "Policy",
+    abstract: "A policy analysis examining the structural, financial, and healthcare system factors driving the rise of MDR-TB in sub-Saharan Africa, with specific focus on Namibia.",
+  },
+  {
+    title: "Gender and TB: Why Women Face Unique Barriers to Diagnosis",
+    authors: "Husselmann K., et al.",
+    journal: "Global Health: Science and Practice",
+    year: "2022",
+    category: "Gender & Health",
+    abstract: "This paper examines gender-specific barriers to TB diagnosis and care, drawing on data from Namibia and recommending targeted interventions for women and girls.",
+  },
+  {
+    title: "Paediatric TB in Namibia: Gaps in Diagnosis and Treatment",
+    authors: "TB Free Foundation of Namibia",
+    journal: "TB Free Foundation Report",
+    year: "2022",
+    category: "Paediatrics",
+    abstract: "An assessment of paediatric TB burden in Namibia, highlighting diagnostic gaps, under-reporting, and the need for child-friendly treatment formulations.",
+  },
+];
+
+const categories = [...new Set(publications.map(p => p.category))];
+---
+
+<Layout title="Research Publications" description="Scientific research and publications by TB Free Foundation of Namibia on TB epidemiology, treatment, stigma, and health policy.">
+  <Hero
+    title="Research Publications"
+    subtitle="Evidence-based research driving better outcomes for TB patients across Namibia and the region."
+    height="medium"
+    backgroundImage="/images/image7.png"
+  />
+
+  <!-- Intro -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center observe-animate" data-animate="animate-fade-in-up">
+      <SectionHeading
+        title="Science in Service of People"
+        subtitle="Our research informs policy, shapes programmes, and ensures that decisions about TB care are rooted in evidence and lived experience."
+        centered
+      />
+    </div>
+  </section>
+
+  <!-- Publications List -->
+  <section class="pb-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto space-y-6">
+      {publications.map((pub) => (
+        <div class="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 observe-animate" data-animate="animate-fade-in-up">
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">{pub.category}</span>
+            <span class="text-xs font-medium text-gray-400 bg-gray-100 px-3 py-1 rounded-full">{pub.year}</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2 leading-snug" style="font-family: var(--font-heading);">{pub.title}</h3>
+          <p class="text-sm text-primary font-medium mb-1">{pub.authors}</p>
+          <p class="text-xs text-gray-400 italic mb-4">{pub.journal}</p>
+          <p class="text-gray-600 leading-relaxed text-sm">{pub.abstract}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Research Collaboration CTA -->
+  <section class="py-20 bg-primary">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-black text-white mb-4" style="font-family: var(--font-heading);">Collaborate With Us</h2>
+      <p class="text-white/80 mb-8">We welcome research partnerships with universities, health institutions, and international organisations committed to ending TB.</p>
+      <a href="/contact" class="px-8 py-3.5 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors text-sm">Get in Touch</a>
+    </div>
+  </section>
+</Layout>

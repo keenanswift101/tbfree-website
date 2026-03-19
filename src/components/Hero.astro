@@ -4,9 +4,10 @@ interface Props {
   subtitle?: string;
   backgroundImage?: string;
   height?: 'full' | 'large' | 'medium' | 'small';
+  imageClass?: string;
 }
 
-const { title, subtitle, backgroundImage, height = 'medium' } = Astro.props;
+const { title, subtitle, backgroundImage, height = 'medium', imageClass = '' } = Astro.props;
 
 const heightClasses = {
   full: 'min-h-screen',
@@ -23,7 +24,7 @@ const heightClasses = {
       <img
         src={backgroundImage}
         alt=""
-        class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay"
+        class={`absolute inset-0 w-full h-full object-cover opacity-20 ${imageClass}`}
         loading="eager"
       />
     )}

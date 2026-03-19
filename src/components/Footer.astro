@@ -1,51 +1,51 @@
 ---
 const currentYear = new Date().getFullYear();
 
-const quickLinks = [
+const aboutLinks = [
   { href: '/', label: 'Home' },
   { href: '/who-we-are', label: 'Who We Are' },
-  { href: '/what-we-do', label: 'What We Do' },
-  { href: '/our-mission', label: 'Our Mission' },
+  { href: '/our-advocacy', label: 'Our Advocacy' },
+  { href: '/world-tb-day', label: 'World TB Day' },
+];
+
+const storiesLinks = [
+  { href: '/tb-champion-stories', label: 'TB Champion Stories' },
+  { href: '/media-articles', label: 'Media Articles' },
+  { href: '/research-publications', label: 'Research Publications' },
+  { href: '/resources', label: 'Resources' },
 ];
 
 const actionLinks = [
-  { href: '/events', label: 'Events & Projects' },
-  { href: '/news', label: 'News' },
   { href: '/donations', label: 'Donate' },
+  { href: '/volunteer', label: 'Volunteer' },
   { href: '/contact', label: 'Contact Us' },
 ];
 ---
 
-<footer class="bg-gray-900 text-gray-300">
+<footer class="bg-[#1a1a2e] text-white">
   <!-- Main footer -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
       <!-- Brand -->
-      <div class="lg:col-span-1">
-        <a href="/" class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">TB</span>
-          </div>
-          <div>
-            <span class="text-lg font-bold text-white">TB FREE</span>
-            <p class="text-xs text-gray-400 uppercase tracking-widest">Foundation of Namibia</p>
-          </div>
+      <div class="lg:col-span-2">
+        <a href="/" class="inline-block mb-6">
+          <img src="/logo.png" alt="TB Free Foundation of Namibia" class="h-28 w-auto" />
         </a>
-        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+        <p class="text-sm text-white/80 leading-relaxed mb-6 max-w-sm">
           Breaking barriers to END TB. A not-for-profit civil society organization advocating for TB patients throughout Namibia.
         </p>
-        <p class="text-sm font-medium text-primary">
+        <p class="text-base sm:text-lg font-black text-primary leading-tight">
           "Breaking barriers to END TB"
         </p>
       </div>
 
-      <!-- Quick Links -->
+      <!-- About Links -->
       <div>
         <h3 class="text-white font-semibold mb-6 text-sm uppercase tracking-wider">About</h3>
         <ul class="space-y-3">
-          {quickLinks.map(link => (
+          {aboutLinks.map(link => (
             <li>
-              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">
+              <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors duration-200">
                 {link.label}
               </a>
             </li>
@@ -53,13 +53,13 @@ const actionLinks = [
         </ul>
       </div>
 
-      <!-- Action Links -->
+      <!-- Stories & Science Links -->
       <div>
-        <h3 class="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Get Involved</h3>
+        <h3 class="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Stories & Science</h3>
         <ul class="space-y-3">
-          {actionLinks.map(link => (
+          {storiesLinks.map(link => (
             <li>
-              <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">
+              <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors duration-200">
                 {link.label}
               </a>
             </li>
@@ -72,35 +72,38 @@ const actionLinks = [
         <h3 class="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Contact</h3>
         <ul class="space-y-4">
           <li>
-            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">General Enquiries</p>
-            <a href="mailto:admin@tbfreenamibia.com" class="text-sm text-gray-400 hover:text-white transition-colors">
+            <p class="text-xs text-white/50 uppercase tracking-wider mb-1">General Enquiries</p>
+            <a href="mailto:admin@tbfreenamibia.com" class="text-sm text-white/80 hover:text-white transition-colors">
               admin@tbfreenamibia.com
             </a>
           </li>
           <li>
-            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Founder</p>
-            <a href="mailto:karin@tbfreenamibia.com" class="text-sm text-gray-400 hover:text-white transition-colors">
+            <p class="text-xs text-white/50 uppercase tracking-wider mb-1">Founder</p>
+            <a href="mailto:karin@tbfreenamibia.com" class="text-sm text-white/80 hover:text-white transition-colors">
               karin@tbfreenamibia.com
             </a>
           </li>
-          <li>
-            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Chairperson</p>
-            <a href="mailto:taime@tbfreenamibia.com" class="text-sm text-gray-400 hover:text-white transition-colors">
-              taime@tbfreenamibia.com
-            </a>
-          </li>
+        </ul>
+        <ul class="mt-6 space-y-3">
+          {actionLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-sm text-white/80 hover:text-white transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
   </div>
 
   <!-- Bottom bar -->
-  <div class="border-t border-gray-800">
+  <div class="border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="text-xs text-gray-500">
+      <p class="text-xs text-white/60">
         &copy; {currentYear} TB Free Foundation of Namibia. All rights reserved.
       </p>
-      <p class="text-xs text-gray-500">
+      <p class="text-xs text-white/60">
         Striving towards a world free of TB
       </p>
     </div>

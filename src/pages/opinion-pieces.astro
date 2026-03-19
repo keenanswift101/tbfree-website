@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const articles = [
+  {
+    title: "Why Namibia Must Prioritise TB in its National Health Agenda",
+    author: "Karin Husselmann",
+    date: "February 2025",
+    excerpt: "Despite being a preventable and curable disease, TB continues to claim thousands of lives in Namibia each year. This piece argues for urgent policy reform and increased investment in TB services.",
+    image: "/images/image1.png",
+  },
+  {
+    title: "Stigma: The Silent Barrier to TB Treatment",
+    author: "TB Free Foundation",
+    date: "November 2024",
+    excerpt: "Social stigma around TB remains one of the biggest obstacles to early diagnosis and adherence to treatment. We explore how communities can change the narrative.",
+    image: "/images/image3.png",
+  },
+  {
+    title: "The Link Between Poverty and TB — A Call for Structural Change",
+    author: "TB Free Foundation",
+    date: "September 2024",
+    excerpt: "TB disproportionately affects the poorest and most vulnerable populations. Ending TB requires addressing the social determinants of health head-on.",
+    image: "/images/image5.png",
+  },
+  {
+    title: "Drug-Resistant TB: Are We Doing Enough?",
+    author: "Karin Husselmann",
+    date: "July 2024",
+    excerpt: "MDR-TB poses an escalating threat. We examine the current gaps in diagnosis, treatment, and support for drug-resistant TB patients in Namibia and the region.",
+    image: "/images/image7.png",
+  },
+  {
+    title: "World TB Day 2024: More Than a Day of Awareness",
+    author: "TB Free Foundation",
+    date: "March 2024",
+    excerpt: "World TB Day is not just a commemoration — it is a call to sustained action. We reflect on what still needs to change to achieve the END TB targets by 2030.",
+    image: "/images/image9.png",
+  },
+  {
+    title: "Voices That Matter: Putting TB Patients at the Centre",
+    author: "TB Free Foundation",
+    date: "January 2024",
+    excerpt: "Meaningful engagement of TB-affected communities must be more than a box-ticking exercise. We share practical lessons from our work across Namibia.",
+    image: "/images/image12.png",
+  },
+];
+---
+
+<Layout title="Opinion Pieces" description="Read opinion pieces and commentary from the TB Free Foundation of Namibia on TB policy, stigma, treatment, and advocacy.">
+  <Hero
+    title="Opinion Pieces"
+    subtitle="Our voices on TB policy, stigma, treatment access, and the road to ending tuberculosis in Namibia."
+    height="medium"
+    backgroundImage="/images/image20.png"
+  />
+
+  <!-- Intro -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center observe-animate" data-animate="animate-fade-in-up">
+      <SectionHeading
+        title="Our Perspectives on Ending TB"
+        subtitle="The TB Free Foundation shares evidence-based opinions and advocacy commentary to drive meaningful changes in TB policy and community care."
+        centered
+      />
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="pb-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {articles.map((article, i) => (
+        <article class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 observe-animate" data-animate="animate-fade-in-up">
+          <div class="h-52 overflow-hidden">
+            <img src={article.image} alt={article.title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-6">
+            <p class="text-xs text-primary font-semibold uppercase tracking-wider mb-2">{article.date} · {article.author}</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-3 leading-snug" style="font-family: var(--font-heading);">{article.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{article.excerpt}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-black text-white mb-4" style="font-family: var(--font-heading);">Have a Perspective to Share?</h2>
+      <p class="text-white/80 mb-8">We welcome contributions from TB survivors, clinicians, researchers, and advocates. Get in touch with us.</p>
+      <a href="/contact" class="px-8 py-3.5 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors text-sm">Contact Us</a>
+    </div>
+  </section>
+</Layout>
