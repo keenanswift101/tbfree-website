@@ -8,10 +8,21 @@
 # Netlify Forms
 # Forms are automatically detected with data-netlify="true" attribute
 
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';"
+
 # Redirect www to non-www
 [[redirects]]
-  from = "https://www.tbfreenamibia.com/*"
-  to = "https://tbfreenamibia.com/:splat"
+  from = "https://www.tb-free.org/*"
+  to = "https://tb-free.org/:splat"
   status = 301
   force = true
 
