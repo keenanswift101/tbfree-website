@@ -76,9 +76,9 @@ Contact Us
 - **Dev server**: `npm run dev` — starts Astro on `http://localhost:4321`
 - **Cloudflare free tunnel**: Use `npx cloudflared tunnel --url http://localhost:4321` to expose the local dev server publicly via a free `trycloudflare.com` URL (temporary, no account needed, URL changes each session)
 
-## Deployment — Cloudflare Pages (primary)
-- **Live URL**: https://tbfree-foundation.pages.dev
-- **Deploy command**: `npm run deploy` — builds the site and uploads to Cloudflare Pages in one step
-- Uses `wrangler pages deploy dist --project-name tbfree-foundation`
-- Direct uploads are free and unlimited — no build minutes consumed
-- `wrangler` is installed as a dev dependency (`node_modules/.bin/wrangler`)
+## Deployment — Netlify (primary)
+- **Live URL**: https://tb-free-org.netlify.app
+- **GitHub repo**: https://github.com/keenanswift101/tbfree-website (account: keenanswift101 / Swift Designz)
+- **Auto-deploy**: Push to `main` branch — Netlify builds and deploys automatically
+- **Manual deploy**: `npm run deploy` — runs `astro build && netlify deploy --prod --dir=dist`
+- Build config in `netlify.toml`: command `npm run build`, publish dir `dist`, Node 20
